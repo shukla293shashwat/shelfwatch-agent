@@ -1,0 +1,19 @@
+{
+  "frozen_at_utc": "2026-10-26T15:27:55.047676+00:00",
+  "development_data": [
+    "generated fixtures",
+    "ShelfChange3D demo1",
+    "ShelfChange3D demo2"
+  ],
+  "parameters": {
+    "pixel_change": 22,
+    "local_std": 5,
+    "texture_loss": 0.3,
+    "component_fraction": 0.0008
+  },
+  "files": {
+    "shelfwatch/agent.py": "9777b0c85a405c8273a2ec59cd1d53de42998db24d4e5ce7700b7420551c7762",
+    "shelfwatch/vision.py": "59114daa7117395f1d9b2cd8884cd3802d5dfb2a4b44ff51e98f0769dc9fc639"
+  },
+  "note": "Initial detector freeze before inspecting additional external pairs. Further changes must be recorded and new test cases must not be described as untouched holdout after tuning."
+}

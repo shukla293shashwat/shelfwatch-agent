@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="ShelfWatch uses OpenCV 5 to inspect shelf images, recheck uncertain areas, and prepare human-approved restock drafts.">
+<meta name="theme-color" content="#101512">
+<title>ShelfWatch Agent — Visual shelf inspection</title>
+<link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+<header class="topbar">
+<nav class="nav wrap" aria-label="Main navigation">
+<a class="brand" href="#top">
+<span class="brand-mark" aria-hidden="true">SW</span>SHELFWATCH AGENT</a>
+<span class="nav-note" id="api-status" role="status">Checking OpenCV runtime…</span>
+</nav>
+</header>
+<main id="top" class="wrap">
+<section class="hero" aria-labelledby="title">
+<div>
+<div class="eyebrow">Visual inventory · OpenCV 5</div>
+<h1 id="title">See the shelf.<br>Check the evidence.</h1>
+<p>Compare a current shelf photo with a reference, re-inspect uncertain cells, and review a restock draft before approving it.</p>
+</div>
+<div class="status">
+<i aria-hidden="true">
+</i>Human approval required</div>
+</section>
+<section class="layout" aria-label="Shelf inspection">
+<article class="card">
+<div class="card-head">
+<h2>Provide shelf images</h2>
+<p>Clear photos from a similar angle give the strongest alignment.</p>
+</div>
+<div class="form-body">
+<div class="field">
+<label for="current">Current shelf photo</label>
+<div class="filebox">
+<input id="current" type="file" accept="image/jpeg,image/png,image/webp" aria-describedby="current-hint">
+<div class="file-copy">
+<strong>Choose a photo</strong>
+<span>JPEG, PNG or WebP · up to 12 MB</span>
+</div>
+</div>
+<span class="hint" id="current-hint">Keep the whole shelf visible and avoid strong glare.</span>
+<img id="current-preview" class="preview" alt="Preview of the selected current shelf photo">
+</div>
+<div class="field">
+<label for="reference">Full-shelf reference <span style="color:var(--muted);font-weight:400">(optional)</span>
+</label>
+<div class="filebox">
+<input id="reference" type="file" accept="image/jpeg,image/png,image/webp" aria-describedby="reference-hint">
+<div class="file-copy">
+<strong>Choose your reference</strong>
+<span>Leave blank to use the built-in synthetic demo</span>
+</div>
+</div>
+<span class="hint" id="reference-hint">For real shelves, upload a full, correctly stocked reference photo.</span>
+<img id="reference-preview" class="preview" alt="Preview of the selected reference shelf photo">
+</div>
+<details class="shelf-settings" open>
+<summary>Select the shelf area</summary>
+<p class="hint">Upload a reference, then drag over the shelf. Leave out floor, hands and unrelated background. You can also enter the edges as percentages.</p>
+<canvas id="roi-canvas" aria-label="Reference image: drag to select the shelf area. The numeric fields provide a keyboard alternative." hidden></canvas>
+<div class="roi-fields">
+<label>Left %<input id="roi-left" type="number" min="0" max="99" step="1" value="0"></label>
+<label>Top %<input id="roi-top" type="number" min="0" max="99" step="1" value="0"></label>
+<label>Right %<input id="roi-right" type="number" min="1" max="100" step="1" value="100"></label>
+<label>Bottom %<input id="roi-bottom" type="number" min="1" max="100" step="1" value="100"></label>
+</div>
+<div class="roi-fields layout-fields">
+<label>Reporting rows<input id="grid-rows" type="number" min="1" max="12" value="3"></label>
+<label>Slots per row<input id="grid-cols" type="number" min="1" max="24" value="6"></label>
+</div>
+<button id="roi-reset" class="button" type="button">Use the full image</button>
+<p class="hint">Local change regions are detected within this area. The grid groups locations; it does not count products.</p>
+</details>
+<div id="access-field" class="field" hidden><label for="access-code">Demo access code</label><input id="access-code" type="password" autocomplete="current-password" placeholder="Enter the code shared by the host"></div>
+<div class="sample-links"><a href="/examples/reference.jpg" download>Download reference</a><a href="/examples/current_3_missing.jpg" download>Download current sample</a></div>
+<div class="actions">
+<button class="button primary" id="analyze" type="button">Analyze shelf</button>
+<button class="button" id="demo" type="button">Try synthetic demo</button>
+</div>
+<button class="button real-demo" id="real-demo" type="button">Try real-photo development example</button>
+<p class="privacy">Photos are processed in memory and are not saved. Drafts and approval events are stored without photos.</p>
+<p id="hosting-note" class="hint"></p>
+<p id="error" class="error" role="alert">
+</p>
+</div>
+</article>
+<article class="card results" aria-labelledby="result-title">
+<div class="card-head">
+<h2 id="result-title">Inspection result</h2>
+<p>Each decision includes the visual evidence and the next action.</p>
+</div>
+<div id="result" class="empty" aria-live="polite">
+<div class="empty-mark" aria-hidden="true">⌖</div>
+<h3>Ready when you are</h3>
+<p>Analyze your shelf or run the synthetic example to see the perception-to-approval workflow.</p>
+</div>
+</article>
+</section>
+</main>
+<footer class="wrap foot">
+<span>ShelfWatch Agent · Hackathon prototype</span>
+<span>Generated examples and development photos are not a general accuracy benchmark.</span>
+<a href="#top">Back to top ↑</a>
+</footer>
+<script src="/static/app.js" defer>
+</script>
+</body>
+</html>

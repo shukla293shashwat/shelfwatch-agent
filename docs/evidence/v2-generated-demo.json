@@ -1,0 +1,295 @@
+{
+  "generated_at_utc": "2026-10-26T15:37:31.523078+00:00",
+  "opencv_version": "5.0.0",
+  "dataset_kind": "development",
+  "label_sha256": "ef93b901d259bfeece60e7864a329e00416f7a9aad2608d4a44db0a649319d65",
+  "source_hashes": {
+    "shelfwatch\\agent.py": "9777b0c85a405c8273a2ec59cd1d53de42998db24d4e5ce7700b7420551c7762",
+    "shelfwatch\\vision.py": "20308f9652765881a9ad833e7f6a610d8ef36a0efc080a31c637cf4d65bdfc96"
+  },
+  "image_count": 3,
+  "passed_cases": 3,
+  "all_cases_pass": true,
+  "cell_metrics": {
+    "tp": 3,
+    "fp": 0,
+    "fn": 0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0
+  },
+  "manual_region_diagnostics": null,
+  "mean_seconds": 0.4783,
+  "limits": "Generated stress tests are not retail accuracy evidence. Annotated publisher previews contain visible labels and are only a separate diagnostic. No product-count metric is inferred from grid cells or merged change regions.",
+  "cases": [
+    {
+      "image": "synthetic_partial_stock.jpg",
+      "reference": "reference.jpg",
+      "source": "generated demo",
+      "split": "development",
+      "input_sha256": "f8b11f2bf8b6287ec2faf4328ef106d5794baa8372bb56d70aafa56b248f5d1a",
+      "reference_sha256": "d38199ecffe8d9ee5e2774ed5c13a8425b5f07269d0abbcd54a613d230108503",
+      "expected_status": "awaiting_approval",
+      "actual_status": "awaiting_approval",
+      "expected_gaps": [
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          0
+        ]
+      ],
+      "predicted_gaps": [
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          0
+        ]
+      ],
+      "expected_review": [
+        [
+          1,
+          2
+        ]
+      ],
+      "actual_review": [
+        [
+          1,
+          2
+        ]
+      ],
+      "regions": [
+        {
+          "box": [
+            321,
+            8,
+            364,
+            74
+          ],
+          "changed_pixels": 1424,
+          "texture_loss": 1.0,
+          "changed_fraction": 0.5018,
+          "status": "gap",
+          "cell": [
+            0,
+            2
+          ]
+        },
+        {
+          "box": [
+            353,
+            78,
+            445,
+            143
+          ],
+          "changed_pixels": 2556,
+          "texture_loss": 1.0,
+          "changed_fraction": 0.4274,
+          "status": "gap",
+          "cell": [
+            0,
+            2
+          ]
+        },
+        {
+          "box": [
+            611,
+            161,
+            742,
+            295
+          ],
+          "changed_pixels": 8590,
+          "texture_loss": 1.0,
+          "changed_fraction": 0.4893,
+          "status": "gap",
+          "cell": [
+            1,
+            4
+          ]
+        },
+        {
+          "box": [
+            304,
+            162,
+            378,
+            290
+          ],
+          "changed_pixels": 4845,
+          "texture_loss": 0.8195,
+          "changed_fraction": 0.5115,
+          "status": "uncertain",
+          "cell": [
+            1,
+            2
+          ]
+        },
+        {
+          "box": [
+            22,
+            316,
+            116,
+            373
+          ],
+          "changed_pixels": 1918,
+          "texture_loss": 1.0,
+          "changed_fraction": 0.358,
+          "status": "gap",
+          "cell": [
+            2,
+            0
+          ]
+        },
+        {
+          "box": [
+            76,
+            387,
+            105,
+            444
+          ],
+          "changed_pixels": 937,
+          "texture_loss": 1.0,
+          "changed_fraction": 0.5668,
+          "status": "gap",
+          "cell": [
+            2,
+            0
+          ]
+        }
+      ],
+      "region_counts": null,
+      "confidence": 0.97,
+      "seconds": 1.1247,
+      "pass": true,
+      "trace": [
+        {
+          "step": 1,
+          "event": "shelf_alignment",
+          "tool": "OpenCV 5 ORB + RANSAC homography",
+          "observation": "inlier ratio 0.97; selected shelf bounds (0, 0, 900, 450)"
+        },
+        {
+          "step": 2,
+          "event": "localized_change_scan",
+          "tool": "OpenCV 5 Lab difference, local texture mask, morphology and connected components",
+          "observation": "6 local change regions inside the selected shelf; 18 reporting cells",
+          "decision": "reinspect_local_regions"
+        },
+        {
+          "step": 3,
+          "event": "active_reinspection",
+          "tool": "OpenCV 5 local edge/texture comparison + finer 2x2 inspection",
+          "observation": "cell (0, 2): 2 regions; texture loss up to 1.00; 100% differing subcells",
+          "decision": "gap"
+        },
+        {
+          "step": 3,
+          "event": "active_reinspection",
+          "tool": "OpenCV 5 local edge/texture comparison + finer 2x2 inspection",
+          "observation": "cell (1, 2): 1 regions; texture loss up to 0.82; 50% differing subcells",
+          "decision": "uncertain"
+        },
+        {
+          "step": 3,
+          "event": "active_reinspection",
+          "tool": "OpenCV 5 local edge/texture comparison + finer 2x2 inspection",
+          "observation": "cell (1, 4): 1 regions; texture loss up to 1.00; 100% differing subcells",
+          "decision": "gap"
+        },
+        {
+          "step": 3,
+          "event": "active_reinspection",
+          "tool": "OpenCV 5 local edge/texture comparison + finer 2x2 inspection",
+          "observation": "cell (2, 0): 2 regions; texture loss up to 1.00; 100% differing subcells",
+          "decision": "gap"
+        },
+        {
+          "step": 4,
+          "event": "human_approval_gate",
+          "observation": "3 affected cells; 1 uncertain cells",
+          "decision": "prepare_draft_and_wait_for_human"
+        }
+      ]
+    },
+    {
+      "image": "synthetic_full_stock.jpg",
+      "reference": "reference.jpg",
+      "source": "generated demo",
+      "split": "development",
+      "input_sha256": "d38199ecffe8d9ee5e2774ed5c13a8425b5f07269d0abbcd54a613d230108503",
+      "reference_sha256": "d38199ecffe8d9ee5e2774ed5c13a8425b5f07269d0abbcd54a613d230108503",
+      "expected_status": "shelf_ok",
+      "actual_status": "shelf_ok",
+      "expected_gaps": [],
+      "predicted_gaps": [],
+      "expected_review": [],
+      "actual_review": [],
+      "regions": [],
+      "region_counts": null,
+      "confidence": 1.0,
+      "seconds": 0.2817,
+      "pass": true,
+      "trace": [
+        {
+          "step": 1,
+          "event": "shelf_alignment",
+          "tool": "OpenCV 5 ORB + RANSAC homography",
+          "observation": "inlier ratio 1.00; selected shelf bounds (0, 0, 900, 450)"
+        },
+        {
+          "step": 2,
+          "event": "localized_change_scan",
+          "tool": "OpenCV 5 Lab difference, local texture mask, morphology and connected components",
+          "observation": "0 local change regions inside the selected shelf; 18 reporting cells",
+          "decision": "no_local_change"
+        },
+        {
+          "step": 4,
+          "event": "no_action",
+          "observation": "0 affected cells; 0 uncertain cells",
+          "decision": "no_restock_draft"
+        }
+      ]
+    },
+    {
+      "image": "synthetic_unaligned.jpg",
+      "reference": "reference.jpg",
+      "source": "generated demo",
+      "split": "development",
+      "input_sha256": "4aa86362777b6f510441c4003d44f45488ff5022a2c2698f3328b1565e208632",
+      "reference_sha256": "d38199ecffe8d9ee5e2774ed5c13a8425b5f07269d0abbcd54a613d230108503",
+      "expected_status": "recapture_requested",
+      "actual_status": "recapture_requested",
+      "expected_gaps": [],
+      "predicted_gaps": [],
+      "expected_review": [],
+      "actual_review": [],
+      "regions": [],
+      "region_counts": null,
+      "confidence": 0.0,
+      "seconds": 0.0285,
+      "pass": true,
+      "trace": [
+        {
+          "step": 1,
+          "event": "shelf_alignment",
+          "tool": "OpenCV 5 ORB + RANSAC homography",
+          "observation": "inlier ratio 0.00; selected shelf bounds (0, 0, 900, 450)",
+          "decision": "request_recapture"
+        }
+      ]
+    }
+  ]
+}

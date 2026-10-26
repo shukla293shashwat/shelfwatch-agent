@@ -1,0 +1,4 @@
+image,gap_cells,review_cells,expected_status
+synthetic_partial_stock.jpg,0-2;1-4;2-0,1-2,awaiting_approval
+synthetic_full_stock.jpg,,,shelf_ok
+synthetic_unaligned.jpg,,,recapture_requested

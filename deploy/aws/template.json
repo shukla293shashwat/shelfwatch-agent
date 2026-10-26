@@ -1,0 +1,336 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Description": "ShelfWatch: OpenCV 5 on EC2, HTTPS, private state, scoped IAM and short-retention logs.",
+  "Parameters": {
+    "Ami": {
+      "Type": "AWS::SSM::Parameter::Value<AWS::EC2::Image::Id>",
+      "Default": "/aws/service/ami-amazon-linux-latest/al2023-ami-kernel-default-x86_64"
+    },
+    "InstanceType": {
+      "Type": "String",
+      "Default": "t3.small",
+      "AllowedValues": [
+        "t3.micro",
+        "t3.small"
+      ]
+    },
+    "SourceBucket": {
+      "Type": "String",
+      "AllowedPattern": "[a-z0-9.-]{3,63}"
+    },
+    "SourceKey": {
+      "Type": "String",
+      "Default": "source.zip"
+    },
+    "SourceSha256": {
+      "Type": "String",
+      "AllowedPattern": "[0-9a-f]{64}"
+    },
+    "TokenParameter": {
+      "Type": "String",
+      "AllowedPattern": "/shelfwatch/[A-Za-z0-9_-]+/access-code"
+    },
+    "DemoLifetimeHours": {
+      "Type": "Number",
+      "Default": 72,
+      "MinValue": 1,
+      "MaxValue": 168
+    }
+  },
+  "Resources": {
+    "Vpc": {
+      "Type": "AWS::EC2::VPC",
+      "Properties": {
+        "CidrBlock": "10.42.0.0/16",
+        "EnableDnsSupport": true,
+        "EnableDnsHostnames": true
+      }
+    },
+    "Gateway": {
+      "Type": "AWS::EC2::InternetGateway"
+    },
+    "GatewayAttachment": {
+      "Type": "AWS::EC2::VPCGatewayAttachment",
+      "Properties": {
+        "VpcId": {
+          "Ref": "Vpc"
+        },
+        "InternetGatewayId": {
+          "Ref": "Gateway"
+        }
+      }
+    },
+    "Subnet": {
+      "Type": "AWS::EC2::Subnet",
+      "Properties": {
+        "VpcId": {
+          "Ref": "Vpc"
+        },
+        "CidrBlock": "10.42.1.0/24",
+        "MapPublicIpOnLaunch": true
+      }
+    },
+    "Routes": {
+      "Type": "AWS::EC2::RouteTable",
+      "Properties": {
+        "VpcId": {
+          "Ref": "Vpc"
+        }
+      }
+    },
+    "InternetRoute": {
+      "Type": "AWS::EC2::Route",
+      "DependsOn": "GatewayAttachment",
+      "Properties": {
+        "RouteTableId": {
+          "Ref": "Routes"
+        },
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "GatewayId": {
+          "Ref": "Gateway"
+        }
+      }
+    },
+    "RouteAssociation": {
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+      "Properties": {
+        "SubnetId": {
+          "Ref": "Subnet"
+        },
+        "RouteTableId": {
+          "Ref": "Routes"
+        }
+      }
+    },
+    "Firewall": {
+      "Type": "AWS::EC2::SecurityGroup",
+      "Properties": {
+        "GroupDescription": "HTTPS demo; no public SSH or Python port",
+        "VpcId": {
+          "Ref": "Vpc"
+        },
+        "SecurityGroupIngress": [
+          {
+            "IpProtocol": "tcp",
+            "FromPort": 80,
+            "ToPort": 80,
+            "CidrIp": "0.0.0.0/0"
+          },
+          {
+            "IpProtocol": "tcp",
+            "FromPort": 443,
+            "ToPort": 443,
+            "CidrIp": "0.0.0.0/0"
+          }
+        ],
+        "SecurityGroupEgress": [
+          {
+            "IpProtocol": "tcp",
+            "FromPort": 80,
+            "ToPort": 80,
+            "CidrIp": "0.0.0.0/0"
+          },
+          {
+            "IpProtocol": "tcp",
+            "FromPort": 443,
+            "ToPort": 443,
+            "CidrIp": "0.0.0.0/0"
+          },
+          {
+            "IpProtocol": "tcp",
+            "FromPort": 53,
+            "ToPort": 53,
+            "CidrIp": "10.42.0.0/16"
+          },
+          {
+            "IpProtocol": "udp",
+            "FromPort": 53,
+            "ToPort": 53,
+            "CidrIp": "10.42.0.0/16"
+          }
+        ]
+      }
+    },
+    "AppLogs": {
+      "Type": "AWS::Logs::LogGroup",
+      "Properties": {
+        "RetentionInDays": 1
+      }
+    },
+    "ServerRole": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "ec2.amazonaws.com"
+              },
+              "Action": "sts:AssumeRole"
+            }
+          ]
+        },
+        "Policies": [
+          {
+            "PolicyName": "DemoResources",
+            "PolicyDocument": {
+              "Version": "2012-10-17",
+              "Statement": [
+                {
+                  "Effect": "Allow",
+                  "Action": [
+                    "ssm:UpdateInstanceInformation",
+                    "ssmmessages:CreateControlChannel",
+                    "ssmmessages:CreateDataChannel",
+                    "ssmmessages:OpenControlChannel",
+                    "ssmmessages:OpenDataChannel"
+                  ],
+                  "Resource": "*"
+                },
+                {
+                  "Effect": "Allow",
+                  "Action": [
+                    "s3:GetObject"
+                  ],
+                  "Resource": {
+                    "Fn::Sub": "arn:${AWS::Partition}:s3:::${SourceBucket}/${SourceKey}"
+                  }
+                },
+                {
+                  "Effect": "Allow",
+                  "Action": [
+                    "ssm:GetParameter"
+                  ],
+                  "Resource": {
+                    "Fn::Sub": "arn:${AWS::Partition}:ssm:${AWS::Region}:${AWS::AccountId}:parameter${TokenParameter}"
+                  }
+                },
+                {
+                  "Effect": "Allow",
+                  "Action": [
+                    "logs:CreateLogStream",
+                    "logs:DescribeLogStreams",
+                    "logs:PutLogEvents"
+                  ],
+                  "Resource": {
+                    "Fn::GetAtt": [
+                      "AppLogs",
+                      "Arn"
+                    ]
+                  }
+                },
+                {
+                  "Effect": "Allow",
+                  "Action": [
+                    "cloudformation:SignalResource"
+                  ],
+                  "Resource": {
+                    "Fn::Sub": "arn:${AWS::Partition}:cloudformation:${AWS::Region}:${AWS::AccountId}:stack/${AWS::StackName}/*"
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    "ServerProfile": {
+      "Type": "AWS::IAM::InstanceProfile",
+      "Properties": {
+        "Roles": [
+          {
+            "Ref": "ServerRole"
+          }
+        ]
+      }
+    },
+    "Server": {
+      "Type": "AWS::EC2::Instance",
+      "DependsOn": [
+        "InternetRoute",
+        "RouteAssociation"
+      ],
+      "CreationPolicy": {
+        "ResourceSignal": {
+          "Count": 1,
+          "Timeout": "PT30M"
+        }
+      },
+      "Properties": {
+        "ImageId": {
+          "Ref": "Ami"
+        },
+        "InstanceType": {
+          "Ref": "InstanceType"
+        },
+        "IamInstanceProfile": {
+          "Ref": "ServerProfile"
+        },
+        "InstanceInitiatedShutdownBehavior": "terminate",
+        "MetadataOptions": {
+          "HttpTokens": "required",
+          "HttpPutResponseHopLimit": 1
+        },
+        "BlockDeviceMappings": [
+          {
+            "DeviceName": "/dev/xvda",
+            "Ebs": {
+              "Encrypted": true,
+              "DeleteOnTermination": true,
+              "VolumeSize": 12,
+              "VolumeType": "gp3"
+            }
+          }
+        ],
+        "NetworkInterfaces": [
+          {
+            "DeviceIndex": "0",
+            "AssociatePublicIpAddress": true,
+            "SubnetId": {
+              "Ref": "Subnet"
+            },
+            "GroupSet": [
+              {
+                "Ref": "Firewall"
+              }
+            ]
+          }
+        ],
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "ShelfWatch disposable demo"
+          },
+          {
+            "Key": "Project",
+            "Value": "ShelfWatch"
+          }
+        ],
+        "UserData": {
+          "Fn::Base64": {
+            "Fn::Sub": "#!/usr/bin/env bash\n# Runs as EC2 user data. The access code is fetched privately from SSM.\nset -euo pipefail\nexport AWS_DEFAULT_REGION='${AWS::Region}'\nsignal_status() {\n  aws cloudformation signal-resource --stack-name '${AWS::StackName}' --logical-resource-id Server --unique-id shelfwatch-bootstrap --status \"$1\" || true\n}\ntrap 'signal_status FAILURE' ERR\n\ndnf install -y docker unzip awscli2\nsystemctl enable --now docker\nmkdir -p /opt/shelfwatch/source\naws s3 cp 's3://${SourceBucket}/${SourceKey}' /opt/shelfwatch/source.zip\nprintf '%s  %s\\n' '${SourceSha256}' /opt/shelfwatch/source.zip | sha256sum --check --status\nunzip -q /opt/shelfwatch/source.zip -d /opt/shelfwatch/source\ncd /opt/shelfwatch/source\ndocker build -t shelfwatch:2 .\n\n# This script is also used after an instance reboot. No secret appears in user data.\ncat > /opt/shelfwatch/start.sh <<'RUN'\n#!/usr/bin/env bash\nset -euo pipefail\nexport AWS_DEFAULT_REGION='${AWS::Region}'\numask 077\naccess_code=$(aws ssm get-parameter --name '${TokenParameter}' --with-decryption --query Parameter.Value --output text)\nprintf 'HOST=0.0.0.0\\nPORT=8000\\nSHELFWATCH_PUBLIC=1\\nSHELFWATCH_STATE_DIR=/data\\nSHELFWATCH_TOKEN=%s\\n' \"$access_code\" > /opt/shelfwatch/runtime.env\nunset access_code\nmetadata_token=$(curl -fsS -X PUT http://169.254.169.254/latest/api/token -H 'X-aws-ec2-metadata-token-ttl-seconds: 60')\npublic_ip=$(curl -fsS -H \"X-aws-ec2-metadata-token: $metadata_token\" http://169.254.169.254/latest/meta-data/public-ipv4)\ncat > /opt/shelfwatch/Caddyfile <<CADDY\nhttps://$public_ip.sslip.io {\n  encode gzip\n  request_body {\n    max_size 26MB\n  }\n  reverse_proxy 127.0.0.1:8000\n}\nCADDY\ndocker rm -f shelfwatch shelfwatch-proxy >/dev/null 2>&1 || true\ndocker run -d --name shelfwatch --restart unless-stopped --read-only --tmpfs /tmp:size=64m --pids-limit 128 --cpus 1 --memory 1200m --env-file /opt/shelfwatch/runtime.env -v shelfwatch-state:/data -p 127.0.0.1:8000:8000 --log-driver awslogs --log-opt awslogs-region='${AWS::Region}' --log-opt awslogs-group='${AppLogs}' --log-opt awslogs-stream=api shelfwatch:2\ndocker run -d --name shelfwatch-proxy --restart unless-stopped --network host -v /opt/shelfwatch/Caddyfile:/etc/caddy/Caddyfile:ro -v shelfwatch-caddy-data:/data -v shelfwatch-caddy-config:/config --log-driver json-file --log-opt max-size=10m --log-opt max-file=2 caddy:2.10.2-alpine\nRUN\nchmod 700 /opt/shelfwatch/start.sh\ncat > /etc/systemd/system/shelfwatch.service <<'UNIT'\n[Unit]\nDescription=ShelfWatch demo and HTTPS proxy\nRequires=docker.service\nAfter=docker.service network-online.target\n[Service]\nType=oneshot\nRemainAfterExit=yes\nExecStart=/opt/shelfwatch/start.sh\nExecStop=-/usr/bin/docker stop shelfwatch shelfwatch-proxy\n[Install]\nWantedBy=multi-user.target\nUNIT\nsystemctl daemon-reload\nsystemctl enable --now shelfwatch\nmetadata_token=$(curl -fsS -X PUT http://169.254.169.254/latest/api/token -H 'X-aws-ec2-metadata-token-ttl-seconds: 60')\npublic_ip=$(curl -fsS -H \"X-aws-ec2-metadata-token: $metadata_token\" http://169.254.169.254/latest/meta-data/public-ipv4)\nready=0\nfor attempt in $(seq 1 60); do\n  if curl -fsS \"https://$public_ip.sslip.io/health\" >/dev/null; then ready=1; break; fi\n  sleep 10\ndone\n[ \"$ready\" = 1 ]\n# The disposable demo terminates after its declared lifetime; cleanup removes the rest.\nsystemd-run --unit shelfwatch-expiry --on-active='${DemoLifetimeHours}h' /sbin/shutdown -h now\nsignal_status SUCCESS\n"
+          }
+        }
+      }
+    }
+  },
+  "Outputs": {
+    "DemoUrl": {
+      "Value": {
+        "Fn::Sub": "https://${Server.PublicIp}.sslip.io"
+      }
+    },
+    "InstanceId": {
+      "Value": {
+        "Ref": "Server"
+      }
+    },
+    "LogGroup": {
+      "Value": {
+        "Ref": "AppLogs"
+      }
+    }
+  }
+}

@@ -1,0 +1,26 @@
+services:
+  - type: web
+    name: shelfwatch-agent
+    runtime: docker
+    plan: free
+    region: singapore
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /health
+    autoDeployTrigger: off
+    envVars:
+      - key: HOST
+        value: 0.0.0.0
+      - key: PORT
+        value: "10000"
+      - key: SHELFWATCH_PUBLIC
+        value: "1"
+      - key: SHELFWATCH_TOKEN
+        generateValue: true
+      - key: SHELFWATCH_MAX_ANALYSES
+        value: "1"
+      - key: SHELFWATCH_MAX_IMAGE_DIMENSION
+        value: "1000"
+      - key: SHELFWATCH_CV_THREADS
+        value: "1"
+      - key: SHELFWATCH_EPHEMERAL_STATE
+        value: "1"

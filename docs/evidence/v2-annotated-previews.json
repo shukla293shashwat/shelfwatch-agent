@@ -1,0 +1,430 @@
+{
+  "generated_at_utc": "2026-10-26T15:37:29.162309+00:00",
+  "opencv_version": "5.0.0",
+  "dataset_kind": "annotated_preview",
+  "label_sha256": "cae57f956674ae14c3a60de23e90bae463d178f75a4295c1b96ef87802094b3c",
+  "source_hashes": {
+    "shelfwatch\\agent.py": "9777b0c85a405c8273a2ec59cd1d53de42998db24d4e5ce7700b7420551c7762",
+    "shelfwatch\\vision.py": "20308f9652765881a9ad833e7f6a610d8ef36a0efc080a31c637cf4d65bdfc96"
+  },
+  "image_count": 6,
+  "passed_cases": 6,
+  "all_cases_pass": true,
+  "cell_metrics": null,
+  "manual_region_diagnostics": {
+    "tp": 4,
+    "fp": 0,
+    "fn": 0,
+    "iou_threshold": 0.25
+  },
+  "mean_seconds": 0.4389,
+  "limits": "Generated stress tests are not retail accuracy evidence. Annotated publisher previews contain visible labels and are only a separate diagnostic. No product-count metric is inferred from grid cells or merged change regions.",
+  "cases": [
+    {
+      "image": "real1_t1.jpg",
+      "reference": "real1_t0.jpg",
+      "source": "ShelfChange3D annotated website preview; not raw benchmark imagery",
+      "split": "additional annotated diagnostic",
+      "input_sha256": "3975426c612cfdb4679d23aefaa5ef666feb35f187bc4ce4b5f44d1ddfc5a9e4",
+      "reference_sha256": "d5bca300da933bad8c9274d80b274b877271ee30d7d9342bdc394dd508adb748",
+      "expected_status": "awaiting_approval",
+      "actual_status": "awaiting_approval",
+      "expected_gaps": [],
+      "predicted_gaps": [
+        [
+          1,
+          2
+        ]
+      ],
+      "expected_review": [],
+      "actual_review": [],
+      "regions": [
+        {
+          "box": [
+            349,
+            203,
+            426,
+            414
+          ],
+          "changed_pixels": 10754,
+          "texture_loss": 0.4199,
+          "changed_fraction": 0.6619,
+          "status": "gap",
+          "cell": [
+            1,
+            2
+          ]
+        }
+      ],
+      "region_counts": [
+        1,
+        0,
+        0
+      ],
+      "confidence": 1.0,
+      "seconds": 1.1527,
+      "pass": true,
+      "trace": [
+        {
+          "step": 1,
+          "event": "shelf_alignment",
+          "tool": "OpenCV 5 ORB + RANSAC homography",
+          "observation": "inlier ratio 1.00; selected shelf bounds (0, 0, 782, 588)"
+        },
+        {
+          "step": 2,
+          "event": "localized_change_scan",
+          "tool": "OpenCV 5 Lab difference, local texture mask, morphology and connected components",
+          "observation": "1 local change regions inside the selected shelf; 18 reporting cells",
+          "decision": "reinspect_local_regions"
+        },
+        {
+          "step": 3,
+          "event": "active_reinspection",
+          "tool": "OpenCV 5 local edge/texture comparison + finer 2x2 inspection",
+          "observation": "cell (1, 2): 1 regions; texture loss up to 0.42; 50% differing subcells",
+          "decision": "gap"
+        },
+        {
+          "step": 4,
+          "event": "human_approval_gate",
+          "observation": "1 affected cells; 0 uncertain cells",
+          "decision": "prepare_draft_and_wait_for_human"
+        }
+      ]
+    },
+    {
+      "image": "real1_t0.jpg",
+      "reference": "real1_t0.jpg",
+      "source": "ShelfChange3D annotated website preview; not raw benchmark imagery",
+      "split": "additional annotated diagnostic",
+      "input_sha256": "d5bca300da933bad8c9274d80b274b877271ee30d7d9342bdc394dd508adb748",
+      "reference_sha256": "d5bca300da933bad8c9274d80b274b877271ee30d7d9342bdc394dd508adb748",
+      "expected_status": "shelf_ok",
+      "actual_status": "shelf_ok",
+      "expected_gaps": [],
+      "predicted_gaps": [],
+      "expected_review": [],
+      "actual_review": [],
+      "regions": [],
+      "region_counts": [
+        0,
+        0,
+        0
+      ],
+      "confidence": 1.0,
+      "seconds": 0.3279,
+      "pass": true,
+      "trace": [
+        {
+          "step": 1,
+          "event": "shelf_alignment",
+          "tool": "OpenCV 5 ORB + RANSAC homography",
+          "observation": "inlier ratio 1.00; selected shelf bounds (0, 0, 782, 588)"
+        },
+        {
+          "step": 2,
+          "event": "localized_change_scan",
+          "tool": "OpenCV 5 Lab difference, local texture mask, morphology and connected components",
+          "observation": "0 local change regions inside the selected shelf; 18 reporting cells",
+          "decision": "no_local_change"
+        },
+        {
+          "step": 4,
+          "event": "no_action",
+          "observation": "0 affected cells; 0 uncertain cells",
+          "decision": "no_restock_draft"
+        }
+      ]
+    },
+    {
+      "image": "real2_t1.jpg",
+      "reference": "real2_t0.jpg",
+      "source": "ShelfChange3D annotated website preview; not raw benchmark imagery",
+      "split": "additional annotated diagnostic",
+      "input_sha256": "68270ec24e17315d940faebcb13e3cf78dc587ffbdd3fb8f6739b0905f5a152b",
+      "reference_sha256": "263ca28ad59cbf3ab8f664b18088b1cfaab6ea647a714b42596ba431ad48891e",
+      "expected_status": "awaiting_approval",
+      "actual_status": "awaiting_approval",
+      "expected_gaps": [],
+      "predicted_gaps": [
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "expected_review": [],
+      "actual_review": [
+        [
+          1,
+          2
+        ]
+      ],
+      "regions": [
+        {
+          "box": [
+            179,
+            255,
+            263,
+            472
+          ],
+          "changed_pixels": 11503,
+          "texture_loss": 0.5987,
+          "changed_fraction": 0.6311,
+          "status": "gap",
+          "cell": [
+            1,
+            1
+          ]
+        },
+        {
+          "box": [
+            285,
+            304,
+            310,
+            379
+          ],
+          "changed_pixels": 683,
+          "texture_loss": 0.1679,
+          "changed_fraction": 0.3643,
+          "status": "uncertain",
+          "cell": [
+            1,
+            2
+          ]
+        },
+        {
+          "box": [
+            85,
+            307,
+            176,
+            489
+          ],
+          "changed_pixels": 10179,
+          "texture_loss": 0.3751,
+          "changed_fraction": 0.6146,
+          "status": "gap",
+          "cell": [
+            2,
+            1
+          ]
+        }
+      ],
+      "region_counts": [
+        2,
+        0,
+        0
+      ],
+      "confidence": 1.0,
+      "seconds": 0.2879,
+      "pass": true,
+      "trace": [
+        {
+          "step": 1,
+          "event": "shelf_alignment",
+          "tool": "OpenCV 5 ORB + RANSAC homography",
+          "observation": "inlier ratio 1.00; selected shelf bounds (0, 0, 782, 587)"
+        },
+        {
+          "step": 2,
+          "event": "localized_change_scan",
+          "tool": "OpenCV 5 Lab difference, local texture mask, morphology and connected components",
+          "observation": "3 local change regions inside the selected shelf; 18 reporting cells",
+          "decision": "reinspect_local_regions"
+        },
+        {
+          "step": 3,
+          "event": "active_reinspection",
+          "tool": "OpenCV 5 local edge/texture comparison + finer 2x2 inspection",
+          "observation": "cell (1, 1): 1 regions; texture loss up to 0.60; 25% differing subcells",
+          "decision": "gap"
+        },
+        {
+          "step": 3,
+          "event": "active_reinspection",
+          "tool": "OpenCV 5 local edge/texture comparison + finer 2x2 inspection",
+          "observation": "cell (1, 2): 1 regions; texture loss up to 0.17; 0% differing subcells",
+          "decision": "uncertain"
+        },
+        {
+          "step": 3,
+          "event": "active_reinspection",
+          "tool": "OpenCV 5 local edge/texture comparison + finer 2x2 inspection",
+          "observation": "cell (2, 1): 1 regions; texture loss up to 0.38; 0% differing subcells",
+          "decision": "gap"
+        },
+        {
+          "step": 4,
+          "event": "human_approval_gate",
+          "observation": "2 affected cells; 1 uncertain cells",
+          "decision": "prepare_draft_and_wait_for_human"
+        }
+      ]
+    },
+    {
+      "image": "real2_t0.jpg",
+      "reference": "real2_t0.jpg",
+      "source": "ShelfChange3D annotated website preview; not raw benchmark imagery",
+      "split": "additional annotated diagnostic",
+      "input_sha256": "263ca28ad59cbf3ab8f664b18088b1cfaab6ea647a714b42596ba431ad48891e",
+      "reference_sha256": "263ca28ad59cbf3ab8f664b18088b1cfaab6ea647a714b42596ba431ad48891e",
+      "expected_status": "shelf_ok",
+      "actual_status": "shelf_ok",
+      "expected_gaps": [],
+      "predicted_gaps": [],
+      "expected_review": [],
+      "actual_review": [],
+      "regions": [],
+      "region_counts": [
+        0,
+        0,
+        0
+      ],
+      "confidence": 1.0,
+      "seconds": 0.2723,
+      "pass": true,
+      "trace": [
+        {
+          "step": 1,
+          "event": "shelf_alignment",
+          "tool": "OpenCV 5 ORB + RANSAC homography",
+          "observation": "inlier ratio 1.00; selected shelf bounds (0, 0, 782, 587)"
+        },
+        {
+          "step": 2,
+          "event": "localized_change_scan",
+          "tool": "OpenCV 5 Lab difference, local texture mask, morphology and connected components",
+          "observation": "0 local change regions inside the selected shelf; 18 reporting cells",
+          "decision": "no_local_change"
+        },
+        {
+          "step": 4,
+          "event": "no_action",
+          "observation": "0 affected cells; 0 uncertain cells",
+          "decision": "no_restock_draft"
+        }
+      ]
+    },
+    {
+      "image": "real3_t1.jpg",
+      "reference": "real3_t0.jpg",
+      "source": "ShelfChange3D annotated website preview; not raw benchmark imagery",
+      "split": "additional annotated diagnostic",
+      "input_sha256": "49d0907f8c76e44a895300c182a56b493de21602618bb9b69edd7d101f483d6e",
+      "reference_sha256": "133246ccf9d7d3a3cf4dc14b9f6c4d057fa9a7b7d4f1f5021c6720c6d83b4b43",
+      "expected_status": "awaiting_approval",
+      "actual_status": "awaiting_approval",
+      "expected_gaps": [],
+      "predicted_gaps": [
+        [
+          1,
+          2
+        ]
+      ],
+      "expected_review": [],
+      "actual_review": [],
+      "regions": [
+        {
+          "box": [
+            240,
+            147,
+            464,
+            439
+          ],
+          "changed_pixels": 36418,
+          "texture_loss": 0.317,
+          "changed_fraction": 0.5568,
+          "status": "gap",
+          "cell": [
+            1,
+            2
+          ]
+        }
+      ],
+      "region_counts": [
+        1,
+        0,
+        0
+      ],
+      "confidence": 1.0,
+      "seconds": 0.3331,
+      "pass": true,
+      "trace": [
+        {
+          "step": 1,
+          "event": "shelf_alignment",
+          "tool": "OpenCV 5 ORB + RANSAC homography",
+          "observation": "inlier ratio 1.00; selected shelf bounds (0, 0, 782, 587)"
+        },
+        {
+          "step": 2,
+          "event": "localized_change_scan",
+          "tool": "OpenCV 5 Lab difference, local texture mask, morphology and connected components",
+          "observation": "1 local change regions inside the selected shelf; 18 reporting cells",
+          "decision": "reinspect_local_regions"
+        },
+        {
+          "step": 3,
+          "event": "active_reinspection",
+          "tool": "OpenCV 5 local edge/texture comparison + finer 2x2 inspection",
+          "observation": "cell (1, 2): 1 regions; texture loss up to 0.32; 100% differing subcells",
+          "decision": "gap"
+        },
+        {
+          "step": 4,
+          "event": "human_approval_gate",
+          "observation": "1 affected cells; 0 uncertain cells",
+          "decision": "prepare_draft_and_wait_for_human"
+        }
+      ]
+    },
+    {
+      "image": "real3_t0.jpg",
+      "reference": "real3_t0.jpg",
+      "source": "ShelfChange3D annotated website preview; not raw benchmark imagery",
+      "split": "additional annotated diagnostic",
+      "input_sha256": "133246ccf9d7d3a3cf4dc14b9f6c4d057fa9a7b7d4f1f5021c6720c6d83b4b43",
+      "reference_sha256": "133246ccf9d7d3a3cf4dc14b9f6c4d057fa9a7b7d4f1f5021c6720c6d83b4b43",
+      "expected_status": "shelf_ok",
+      "actual_status": "shelf_ok",
+      "expected_gaps": [],
+      "predicted_gaps": [],
+      "expected_review": [],
+      "actual_review": [],
+      "regions": [],
+      "region_counts": [
+        0,
+        0,
+        0
+      ],
+      "confidence": 1.0,
+      "seconds": 0.2597,
+      "pass": true,
+      "trace": [
+        {
+          "step": 1,
+          "event": "shelf_alignment",
+          "tool": "OpenCV 5 ORB + RANSAC homography",
+          "observation": "inlier ratio 1.00; selected shelf bounds (0, 0, 782, 587)"
+        },
+        {
+          "step": 2,
+          "event": "localized_change_scan",
+          "tool": "OpenCV 5 Lab difference, local texture mask, morphology and connected components",
+          "observation": "0 local change regions inside the selected shelf; 18 reporting cells",
+          "decision": "no_local_change"
+        },
+        {
+          "step": 4,
+          "event": "no_action",
+          "observation": "0 affected cells; 0 uncertain cells",
+          "decision": "no_restock_draft"
+        }
+      ]
+    }
+  ]
+}

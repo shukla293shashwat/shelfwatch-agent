@@ -1,0 +1,1989 @@
+{
+  "generated_at_utc": "2026-10-26T15:35:50.868080+00:00",
+  "opencv_version": "5.0.0",
+  "dataset_kind": "synthetic_stress",
+  "label_sha256": "8b94075351c5c8df63f9e7ff1d45665d04d0e48bd651f2d7b5878000914a0480",
+  "source_hashes": {
+    "shelfwatch\\agent.py": "9777b0c85a405c8273a2ec59cd1d53de42998db24d4e5ce7700b7420551c7762",
+    "shelfwatch\\vision.py": "20308f9652765881a9ad833e7f6a610d8ef36a0efc080a31c637cf4d65bdfc96"
+  },
+  "image_count": 33,
+  "passed_cases": 32,
+  "all_cases_pass": false,
+  "cell_metrics": {
+    "tp": 18,
+    "fp": 1,
+    "fn": 0,
+    "precision": 0.9473684210526315,
+    "recall": 1.0,
+    "f1": 0.972972972972973
+  },
+  "manual_region_diagnostics": null,
+  "mean_seconds": 0.2247,
+  "limits": "Generated stress tests are not retail accuracy evidence. Annotated publisher previews contain visible labels and are only a separate diagnostic. No product-count metric is inferred from grid cells or merged change regions.",
+  "cases": [
+    {
+      "image": "73_unchanged.jpg",
+      "reference": "reference_73.jpg",
+      "source": "generated stress fixture",
+      "split": "held-out synthetic",
+      "input_sha256": "9fa06cb342886f337e2c17a1233a6e6165735e76b9a0fecee54444887db577fa",
+      "reference_sha256": "9fa06cb342886f337e2c17a1233a6e6165735e76b9a0fecee54444887db577fa",
+      "expected_status": "shelf_ok",
+      "actual_status": "shelf_ok",
+      "expected_gaps": [],
+      "predicted_gaps": [],
+      "expected_review": [],
+      "actual_review": [],
+      "regions": [],
+      "region_counts": null,
+      "confidence": 1.0,
+      "seconds": 1.1539,
+      "pass": true,
+      "trace": [
+        {
+          "step": 1,
+          "event": "shelf_alignment",
+          "tool": "OpenCV 5 ORB + RANSAC homography",
+          "observation": "inlier ratio 1.00; selected shelf bounds (0, 0, 720, 480)"
+        },
+        {
+          "step": 2,
+          "event": "localized_change_scan",
+          "tool": "OpenCV 5 Lab difference, local texture mask, morphology and connected components",
+          "observation": "0 local change regions inside the selected shelf; 18 reporting cells",
+          "decision": "no_local_change"
+        },
+        {
+          "step": 4,
+          "event": "no_action",
+          "observation": "0 affected cells; 0 uncertain cells",
+          "decision": "no_restock_draft"
+        }
+      ]
+    },
+    {
+      "image": "73_brightness.jpg",
+      "reference": "reference_73.jpg",
+      "source": "generated stress fixture",
+      "split": "held-out synthetic",
+      "input_sha256": "f4ec1cbf084a1a28e6bbe94b8d4fa3a1aefcbea1e26dcc2b39f8f1f3d355378a",
+      "reference_sha256": "9fa06cb342886f337e2c17a1233a6e6165735e76b9a0fecee54444887db577fa",
+      "expected_status": "shelf_ok",
+      "actual_status": "shelf_ok",
+      "expected_gaps": [],
+      "predicted_gaps": [],
+      "expected_review": [],
+      "actual_review": [],
+      "regions": [],
+      "region_counts": null,
+      "confidence": 1.0,
+      "seconds": 0.2754,
+      "pass": true,
+      "trace": [
+        {
+          "step": 1,
+          "event": "shelf_alignment",
+          "tool": "OpenCV 5 ORB + RANSAC homography",
+          "observation": "inlier ratio 1.00; selected shelf bounds (0, 0, 720, 480)"
+        },
+        {
+          "step": 2,
+          "event": "localized_change_scan",
+          "tool": "OpenCV 5 Lab difference, local texture mask, morphology and connected components",
+          "observation": "0 local change regions inside the selected shelf; 18 reporting cells",
+          "decision": "no_local_change"
+        },
+        {
+          "step": 4,
+          "event": "no_action",
+          "observation": "0 affected cells; 0 uncertain cells",
+          "decision": "no_restock_draft"
+        }
+      ]
+    },
+    {
+      "image": "73_viewpoint.jpg",
+      "reference": "reference_73.jpg",
+      "source": "generated stress fixture",
+      "split": "held-out synthetic",
+      "input_sha256": "537bf90b3497e633a52e56da124fc05cc44ed213855dc0e99698b88c753136c0",
+      "reference_sha256": "9fa06cb342886f337e2c17a1233a6e6165735e76b9a0fecee54444887db577fa",
+      "expected_status": "shelf_ok",
+      "actual_status": "shelf_ok",
+      "expected_gaps": [],
+      "predicted_gaps": [],
+      "expected_review": [],
+      "actual_review": [],
+      "regions": [],
+      "region_counts": null,
+      "confidence": 0.994,
+      "seconds": 0.2211,
+      "pass": true,
+      "trace": [
+        {
+          "step": 1,
+          "event": "shelf_alignment",
+          "tool": "OpenCV 5 ORB + RANSAC homography",
+          "observation": "inlier ratio 0.99; selected shelf bounds (0, 0, 720, 480)"
+        },
+        {
+          "step": 2,
+          "event": "localized_change_scan",
+          "tool": "OpenCV 5 Lab difference, local texture mask, morphology and connected components",
+          "observation": "0 local change regions inside the selected shelf; 18 reporting cells",
+          "decision": "no_local_change"
+        },
+        {
+          "step": 4,
+          "event": "no_action",
+          "observation": "0 affected cells; 0 uncertain cells",
+          "decision": "no_restock_draft"
+        }
+      ]
+    },
+    {
+      "image": "73_single_gap.jpg",
+      "reference": "reference_73.jpg",
+      "source": "generated stress fixture",
+      "split": "held-out synthetic",
+      "input_sha256": "a3854d00ae70685b7d24446d2032888820719cd01bfbc3fba21f5590cd425eaa",
+      "reference_sha256": "9fa06cb342886f337e2c17a1233a6e6165735e76b9a0fecee54444887db577fa",
+      "expected_status": "awaiting_approval",
+      "actual_status": "awaiting_approval",
+      "expected_gaps": [
+        [
+          0,
+          1
+        ]
+      ],
+      "predicted_gaps": [
+        [
+          0,
+          1
+        ]
+      ],
+      "expected_review": [],
+      "actual_review": [],
+      "regions": [
+        {
+          "box": [
+            131,
+            11,
+            230,
+            150
+          ],
+          "changed_pixels": 9602,
+          "texture_loss": 1.0,
+          "changed_fraction": 0.6978,
+          "status": "gap",
+          "cell": [
+            0,
+            1
+          ]
+        }
+      ],
+      "region_counts": null,
+      "confidence": 1.0,
+      "seconds": 0.2199,
+      "pass": true,
+      "trace": [
+        {
+          "step": 1,
+          "event": "shelf_alignment",
+          "tool": "OpenCV 5 ORB + RANSAC homography",
+          "observation": "inlier ratio 1.00; selected shelf bounds (0, 0, 720, 480)"
+        },
+        {
+          "step": 2,
+          "event": "localized_change_scan",
+          "tool": "OpenCV 5 Lab difference, local texture mask, morphology and connected components",
+          "observation": "1 local change regions inside the selected shelf; 18 reporting cells",
+          "decision": "reinspect_local_regions"
+        },
+        {
+          "step": 3,
+          "event": "active_reinspection",
+          "tool": "OpenCV 5 local edge/texture comparison + finer 2x2 inspection",
+          "observation": "cell (0, 1): 1 regions; texture loss up to 1.00; 100% differing subcells",
+          "decision": "gap"
+        },
+        {
+          "step": 4,
+          "event": "human_approval_gate",
+          "observation": "1 affected cells; 0 uncertain cells",
+          "decision": "prepare_draft_and_wait_for_human"
+        }
+      ]
+    },
+    {
+      "image": "73_two_gaps.jpg",
+      "reference": "reference_73.jpg",
+      "source": "generated stress fixture",
+      "split": "held-out synthetic",
+      "input_sha256": "83e728d7182825d3a4c7a90ea0752eea96c208826615ff3cbfc4a0ea85f771df",
+      "reference_sha256": "9fa06cb342886f337e2c17a1233a6e6165735e76b9a0fecee54444887db577fa",
+      "expected_status": "awaiting_approval",
+      "actual_status": "awaiting_approval",
+      "expected_gaps": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          4
+        ]
+      ],
+      "predicted_gaps": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          4
+        ]
+      ],
+      "expected_review": [],
+      "actual_review": [],
+      "regions": [
+        {
+          "box": [
+            251,
+            171,
+            350,
+            310
+          ],
+          "changed_pixels": 7920,
+          "texture_loss": 1.0,
+          "changed_fraction": 0.5755,
+          "status": "gap",
+          "cell": [
+            1,
+            2
+          ]
+        },
+        {
+          "box": [
+            492,
+            332,
+            589,
+            470
+          ],
+          "changed_pixels": 7394,
+          "texture_loss": 1.0,
+          "changed_fraction": 0.5524,
+          "status": "gap",
+          "cell": [
+            2,
+            4
+          ]
+        }
+      ],
+      "region_counts": null,
+      "confidence": 1.0,
+      "seconds": 0.2447,
+      "pass": true,
+      "trace": [
+        {
+          "step": 1,
+          "event": "shelf_alignment",
+          "tool": "OpenCV 5 ORB + RANSAC homography",
+          "observation": "inlier ratio 1.00; selected shelf bounds (0, 0, 720, 480)"
+        },
+        {
+          "step": 2,
+          "event": "localized_change_scan",
+          "tool": "OpenCV 5 Lab difference, local texture mask, morphology and connected components",
+          "observation": "2 local change regions inside the selected shelf; 18 reporting cells",
+          "decision": "reinspect_local_regions"
+        },
+        {
+          "step": 3,
+          "event": "active_reinspection",
+          "tool": "OpenCV 5 local edge/texture comparison + finer 2x2 inspection",
+          "observation": "cell (1, 2): 1 regions; texture loss up to 1.00; 100% differing subcells",
+          "decision": "gap"
+        },
+        {
+          "step": 3,
+          "event": "active_reinspection",
+          "tool": "OpenCV 5 local edge/texture comparison + finer 2x2 inspection",
+          "observation": "cell (2, 4): 1 regions; texture loss up to 1.00; 100% differing subcells",
+          "decision": "gap"
+        },
+        {
+          "step": 4,
+          "event": "human_approval_gate",
+          "observation": "2 affected cells; 0 uncertain cells",
+          "decision": "prepare_draft_and_wait_for_human"
+        }
+      ]
+    },
+    {
+      "image": "73_three_gaps.jpg",
+      "reference": "reference_73.jpg",
+      "source": "generated stress fixture",
+      "split": "held-out synthetic",
+      "input_sha256": "040e8831fd3fef6c095289cb3bc6182f7cc929d197a91d8520f4218219dc8827",
+      "reference_sha256": "9fa06cb342886f337e2c17a1233a6e6165735e76b9a0fecee54444887db577fa",
+      "expected_status": "awaiting_approval",
+      "actual_status": "awaiting_approval",
+      "expected_gaps": [
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "predicted_gaps": [
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "expected_review": [],
+      "actual_review": [],
+      "regions": [
+        {
+          "box": [
+            491,
+            12,
+            589,
+            149
+          ],
+          "changed_pixels": 7307,
+          "texture_loss": 1.0,
+          "changed_fraction": 0.5442,
+          "status": "gap",
+          "cell": [
+            0,
+            4
+          ]
+        },
+        {
+          "box": [
+            132,
+            172,
+            229,
+            309
+          ],
+          "changed_pixels": 7232,
+          "texture_loss": 1.0,
+          "changed_fraction": 0.5442,
+          "status": "gap",
+          "cell": [
+            1,
+            1
+          ]
+        },
+        {
+          "box": [
+            377,
+            353,
+            402,
+            408
+          ],
+          "changed_pixels": 726,
+          "texture_loss": 1.0,
+          "changed_fraction": 0.528,
+          "status": "gap",
+          "cell": [
+            2,
+            3
+          ]
+        },
+        {
+          "box": [
+            426,
+            371,
+            466,
+            414
+          ],
+          "changed_pixels": 642,
+          "texture_loss": 1.0,
+          "changed_fraction": 0.3733,
+          "status": "gap",
+          "cell": [
+            2,
+            3
+          ]
+        },
+        {
+          "box": [
+            396,
+            430,
+            412,
+            466
+          ],
+          "changed_pixels": 374,
+          "texture_loss": 1.0,
+          "changed_fraction": 0.6493,
+          "status": "gap",
+          "cell": [
+            2,
+            3
+          ]
+        }
+      ],
+      "region_counts": null,
+      "confidence": 1.0,
+      "seconds": 0.2734,
+      "pass": true,
+      "trace": [
+        {
+          "step": 1,
+          "event": "shelf_alignment",
+          "tool": "OpenCV 5 ORB + RANSAC homography",
+          "observation": "inlier ratio 1.00; selected shelf bounds (0, 0, 720, 480)"
+        },
+        {
+          "step": 2,
+          "event": "localized_change_scan",
+          "tool": "OpenCV 5 Lab difference, local texture mask, morphology and connected components",
+          "observation": "5 local change regions inside the selected shelf; 18 reporting cells",
+          "decision": "reinspect_local_regions"
+        },
+        {
+          "step": 3,
+          "event": "active_reinspection",
+          "tool": "OpenCV 5 local edge/texture comparison + finer 2x2 inspection",
+          "observation": "cell (0, 4): 1 regions; texture loss up to 1.00; 100% differing subcells",
+          "decision": "gap"
+        },
+        {
+          "step": 3,
+          "event": "active_reinspection",
+          "tool": "OpenCV 5 local edge/texture comparison + finer 2x2 inspection",
+          "observation": "cell (1, 1): 1 regions; texture loss up to 1.00; 100% differing subcells",
+          "decision": "gap"
+        },
+        {
+          "step": 3,
+          "event": "active_reinspection",
+          "tool": "OpenCV 5 local edge/texture comparison + finer 2x2 inspection",
+          "observation": "cell (2, 3): 3 regions; texture loss up to 1.00; 100% differing subcells",
+          "decision": "gap"
+        },
+        {
+          "step": 4,
+          "event": "human_approval_gate",
+          "observation": "3 affected cells; 0 uncertain cells",
+          "decision": "prepare_draft_and_wait_for_human"
+        }
+      ]
+    },
+    {
+      "image": "73_partial_occlusion.jpg",
+      "reference": "reference_73.jpg",
+      "source": "generated stress fixture",
+      "split": "held-out synthetic",
+      "input_sha256": "858e74bab3f5252f03fcfcc76fcac9454c9f6c6428509ea552c90fdf688110e9",
+      "reference_sha256": "9fa06cb342886f337e2c17a1233a6e6165735e76b9a0fecee54444887db577fa",
+      "expected_status": "needs_review",
+      "actual_status": "needs_review",
+      "expected_gaps": [],
+      "predicted_gaps": [],
+      "expected_review": [
+        [
+          1,
+          3
+        ]
+      ],
+      "actual_review": [
+        [
+          1,
+          3
+        ]
+      ],
+      "regions": [
+        {
+          "box": [
+            372,
+            172,
+            420,
+            309
+          ],
+          "changed_pixels": 3279,
+          "texture_loss": 0.9416,
+          "changed_fraction": 0.4986,
+          "status": "uncertain",
+          "cell": [
+            1,
+            3
+          ]
+        }
+      ],
+      "region_counts": null,
+      "confidence": 1.0,
+      "seconds": 0.2196,
+      "pass": true,
+      "trace": [
+        {
+          "step": 1,
+          "event": "shelf_alignment",
+          "tool": "OpenCV 5 ORB + RANSAC homography",
+          "observation": "inlier ratio 1.00; selected shelf bounds (0, 0, 720, 480)"
+        },
+        {
+          "step": 2,
+          "event": "localized_change_scan",
+          "tool": "OpenCV 5 Lab difference, local texture mask, morphology and connected components",
+          "observation": "1 local change regions inside the selected shelf; 18 reporting cells",
+          "decision": "reinspect_local_regions"
+        },
+        {
+          "step": 3,
+          "event": "active_reinspection",
+          "tool": "OpenCV 5 local edge/texture comparison + finer 2x2 inspection",
+          "observation": "cell (1, 3): 1 regions; texture loss up to 0.94; 50% differing subcells",
+          "decision": "uncertain"
+        },
+        {
+          "step": 4,
+          "event": "human_review_gate",
+          "observation": "0 affected cells; 1 uncertain cells",
+          "decision": "request_human_review"
+        }
+      ]
+    },
+    {
+      "image": "73_uniform_bad_photo.jpg",
+      "reference": "reference_73.jpg",
+      "source": "generated stress fixture",
+      "split": "held-out synthetic",
+      "input_sha256": "0101f1b713af236318108f6708845960a9c733dbe1bf562b2aced2aea4bc23e8",
+      "reference_sha256": "9fa06cb342886f337e2c17a1233a6e6165735e76b9a0fecee54444887db577fa",
+      "expected_status": "recapture_requested",
+      "actual_status": "recapture_requested",
+      "expected_gaps": [],
+      "predicted_gaps": [],
+      "expected_review": [],
+      "actual_review": [],
+      "regions": [],
+      "region_counts": null,
+      "confidence": 0.0,
+      "seconds": 0.0232,
+      "pass": true,
+      "trace": [
+        {
+          "step": 1,
+          "event": "shelf_alignment",
+          "tool": "OpenCV 5 ORB + RANSAC homography",
+          "observation": "inlier ratio 0.00; selected shelf bounds (0, 0, 720, 480)",
+          "decision": "request_recapture"
+        }
+      ]
+    },
+    {
+      "image": "73_unrelated_scene.jpg",
+      "reference": "reference_73.jpg",
+      "source": "generated stress fixture",
+      "split": "held-out synthetic",
+      "input_sha256": "088835c40200c81dc4806437c7a0143e43ae74cd6ce50c9e25c2fee3794c896a",
+      "reference_sha256": "9fa06cb342886f337e2c17a1233a6e6165735e76b9a0fecee54444887db577fa",
+      "expected_status": "recapture_requested",
+      "actual_status": "recapture_requested",
+      "expected_gaps": [],
+      "predicted_gaps": [],
+      "expected_review": [],
+      "actual_review": [],
+      "regions": [],
+      "region_counts": null,
+      "confidence": 0.016,
+      "seconds": 0.2267,
+      "pass": true,
+      "trace": [
+        {
+          "step": 1,
+          "event": "shelf_alignment",
+          "tool": "OpenCV 5 ORB + RANSAC homography",
+          "observation": "inlier ratio 0.02; selected shelf bounds (0, 0, 720, 480)",
+          "decision": "request_recapture"
+        }
+      ]
+    },
+    {
+      "image": "73_shelf_out_of_frame.jpg",
+      "reference": "reference_73.jpg",
+      "source": "generated stress fixture",
+      "split": "held-out synthetic",
+      "input_sha256": "c7817595e5f2fd3b6e6052b564fb1e4137413b3fa2aee3599c2aaf7a98a4ee35",
+      "reference_sha256": "9fa06cb342886f337e2c17a1233a6e6165735e76b9a0fecee54444887db577fa",
+      "expected_status": "recapture_requested",
+      "actual_status": "recapture_requested",
+      "expected_gaps": [],
+      "predicted_gaps": [],
+      "expected_review": [],
+      "actual_review": [],
+      "regions": [],
+      "region_counts": null,
+      "confidence": 0.99,
+      "seconds": 0.1851,
+      "pass": true,
+      "trace": [
+        {
+          "step": 1,
+          "event": "shelf_alignment",
+          "tool": "OpenCV 5 ORB + RANSAC homography",
+          "observation": "inlier ratio 0.99; selected shelf bounds (0, 0, 720, 480)",
+          "decision": "request_recapture"
+        }
+      ]
+    },
+    {
+      "image": "73_change_outside_roi.jpg",
+      "reference": "reference_73.jpg",
+      "source": "generated stress fixture",
+      "split": "held-out synthetic",
+      "input_sha256": "1aaac8ffca5f2daec68914c23a891607f547547c60e039f34bd4ca9d8f0adcd3",
+      "reference_sha256": "9fa06cb342886f337e2c17a1233a6e6165735e76b9a0fecee54444887db577fa",
+      "expected_status": "shelf_ok",
+      "actual_status": "shelf_ok",
+      "expected_gaps": [],
+      "predicted_gaps": [],
+      "expected_review": [],
+      "actual_review": [],
+      "regions": [],
+      "region_counts": null,
+      "confidence": 1.0,
+      "seconds": 0.2147,
+      "pass": true,
+      "trace": [
+        {
+          "step": 1,
+          "event": "shelf_alignment",
+          "tool": "OpenCV 5 ORB + RANSAC homography",
+          "observation": "inlier ratio 1.00; selected shelf bounds (0, 0, 720, 320)"
+        },
+        {
+          "step": 2,
+          "event": "localized_change_scan",
+          "tool": "OpenCV 5 Lab difference, local texture mask, morphology and connected components",
+          "observation": "0 local change regions inside the selected shelf; 12 reporting cells",
+          "decision": "no_local_change"
+        },
+        {
+          "step": 4,
+          "event": "no_action",
+          "observation": "0 affected cells; 0 uncertain cells",
+          "decision": "no_restock_draft"
+        }
+      ]
+    },
+    {
+      "image": "91_unchanged.jpg",
+      "reference": "reference_91.jpg",
+      "source": "generated stress fixture",
+      "split": "held-out synthetic",
+      "input_sha256": "1eeacbbcc624669955b061d27e06058240bc94033d81a8152fb33ade0ae3a7fc",
+      "reference_sha256": "1eeacbbcc624669955b061d27e06058240bc94033d81a8152fb33ade0ae3a7fc",
+      "expected_status": "shelf_ok",
+      "actual_status": "shelf_ok",
+      "expected_gaps": [],
+      "predicted_gaps": [],
+      "expected_review": [],
+      "actual_review": [],
+      "regions": [],
+      "region_counts": null,
+      "confidence": 1.0,
+      "seconds": 0.2288,
+      "pass": true,
+      "trace": [
+        {
+          "step": 1,
+          "event": "shelf_alignment",
+          "tool": "OpenCV 5 ORB + RANSAC homography",
+          "observation": "inlier ratio 1.00; selected shelf bounds (0, 0, 720, 480)"
+        },
+        {
+          "step": 2,
+          "event": "localized_change_scan",
+          "tool": "OpenCV 5 Lab difference, local texture mask, morphology and connected components",
+          "observation": "0 local change regions inside the selected shelf; 18 reporting cells",
+          "decision": "no_local_change"
+        },
+        {
+          "step": 4,
+          "event": "no_action",
+          "observation": "0 affected cells; 0 uncertain cells",
+          "decision": "no_restock_draft"
+        }
+      ]
+    },
+    {
+      "image": "91_brightness.jpg",
+      "reference": "reference_91.jpg",
+      "source": "generated stress fixture",
+      "split": "held-out synthetic",
+      "input_sha256": "a2bef601193d53b3c9d1bad31705296c562c4e8bfafb975f4f506318032a8c77",
+      "reference_sha256": "1eeacbbcc624669955b061d27e06058240bc94033d81a8152fb33ade0ae3a7fc",
+      "expected_status": "shelf_ok",
+      "actual_status": "shelf_ok",
+      "expected_gaps": [],
+      "predicted_gaps": [],
+      "expected_review": [],
+      "actual_review": [],
+      "regions": [],
+      "region_counts": null,
+      "confidence": 1.0,
+      "seconds": 0.2935,
+      "pass": true,
+      "trace": [
+        {
+          "step": 1,
+          "event": "shelf_alignment",
+          "tool": "OpenCV 5 ORB + RANSAC homography",
+          "observation": "inlier ratio 1.00; selected shelf bounds (0, 0, 720, 480)"
+        },
+        {
+          "step": 2,
+          "event": "localized_change_scan",
+          "tool": "OpenCV 5 Lab difference, local texture mask, morphology and connected components",
+          "observation": "0 local change regions inside the selected shelf; 18 reporting cells",
+          "decision": "no_local_change"
+        },
+        {
+          "step": 4,
+          "event": "no_action",
+          "observation": "0 affected cells; 0 uncertain cells",
+          "decision": "no_restock_draft"
+        }
+      ]
+    },
+    {
+      "image": "91_viewpoint.jpg",
+      "reference": "reference_91.jpg",
+      "source": "generated stress fixture",
+      "split": "held-out synthetic",
+      "input_sha256": "5c6acdc0abb6080c9e6f0b97a30b219f06642261c7442839ce1ed3f25f66f5d6",
+      "reference_sha256": "1eeacbbcc624669955b061d27e06058240bc94033d81a8152fb33ade0ae3a7fc",
+      "expected_status": "shelf_ok",
+      "actual_status": "shelf_ok",
+      "expected_gaps": [],
+      "predicted_gaps": [],
+      "expected_review": [],
+      "actual_review": [],
+      "regions": [],
+      "region_counts": null,
+      "confidence": 0.99,
+      "seconds": 0.2252,
+      "pass": true,
+      "trace": [
+        {
+          "step": 1,
+          "event": "shelf_alignment",
+          "tool": "OpenCV 5 ORB + RANSAC homography",
+          "observation": "inlier ratio 0.99; selected shelf bounds (0, 0, 720, 480)"
+        },
+        {
+          "step": 2,
+          "event": "localized_change_scan",
+          "tool": "OpenCV 5 Lab difference, local texture mask, morphology and connected components",
+          "observation": "0 local change regions inside the selected shelf; 18 reporting cells",
+          "decision": "no_local_change"
+        },
+        {
+          "step": 4,
+          "event": "no_action",
+          "observation": "0 affected cells; 0 uncertain cells",
+          "decision": "no_restock_draft"
+        }
+      ]
+    },
+    {
+      "image": "91_single_gap.jpg",
+      "reference": "reference_91.jpg",
+      "source": "generated stress fixture",
+      "split": "held-out synthetic",
+      "input_sha256": "7a493ce0a1d02a73489e90a35c1da136374fe853e46ebc45a6fc22bc7110b9ed",
+      "reference_sha256": "1eeacbbcc624669955b061d27e06058240bc94033d81a8152fb33ade0ae3a7fc",
+      "expected_status": "awaiting_approval",
+      "actual_status": "awaiting_approval",
+      "expected_gaps": [
+        [
+          0,
+          1
+        ]
+      ],
+      "predicted_gaps": [
+        [
+          0,
+          1
+        ]
+      ],
+      "expected_review": [],
+      "actual_review": [],
+      "regions": [
+        {
+          "box": [
+            131,
+            12,
+            229,
+            149
+          ],
+          "changed_pixels": 7325,
+          "texture_loss": 1.0,
+          "changed_fraction": 0.5456,
+          "status": "gap",
+          "cell": [
+            0,
+            1
+          ]
+        }
+      ],
+      "region_counts": null,
+      "confidence": 1.0,
+      "seconds": 0.2193,
+      "pass": true,
+      "trace": [
+        {
+          "step": 1,
+          "event": "shelf_alignment",
+          "tool": "OpenCV 5 ORB + RANSAC homography",
+          "observation": "inlier ratio 1.00; selected shelf bounds (0, 0, 720, 480)"
+        },
+        {
+          "step": 2,
+          "event": "localized_change_scan",
+          "tool": "OpenCV 5 Lab difference, local texture mask, morphology and connected components",
+          "observation": "1 local change regions inside the selected shelf; 18 reporting cells",
+          "decision": "reinspect_local_regions"
+        },
+        {
+          "step": 3,
+          "event": "active_reinspection",
+          "tool": "OpenCV 5 local edge/texture comparison + finer 2x2 inspection",
+          "observation": "cell (0, 1): 1 regions; texture loss up to 1.00; 100% differing subcells",
+          "decision": "gap"
+        },
+        {
+          "step": 4,
+          "event": "human_approval_gate",
+          "observation": "1 affected cells; 0 uncertain cells",
+          "decision": "prepare_draft_and_wait_for_human"
+        }
+      ]
+    },
+    {
+      "image": "91_two_gaps.jpg",
+      "reference": "reference_91.jpg",
+      "source": "generated stress fixture",
+      "split": "held-out synthetic",
+      "input_sha256": "d54f61db5c2d8021edbc746b95511533abbb0e07076cba0197d28d65ec6e7e4d",
+      "reference_sha256": "1eeacbbcc624669955b061d27e06058240bc94033d81a8152fb33ade0ae3a7fc",
+      "expected_status": "awaiting_approval",
+      "actual_status": "awaiting_approval",
+      "expected_gaps": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          4
+        ]
+      ],
+      "predicted_gaps": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          4
+        ]
+      ],
+      "expected_review": [],
+      "actual_review": [],
+      "regions": [
+        {
+          "box": [
+            250,
+            171,
+            350,
+            310
+          ],
+          "changed_pixels": 8223,
+          "texture_loss": 1.0,
+          "changed_fraction": 0.5916,
+          "status": "gap",
+          "cell": [
+            1,
+            2
+          ]
+        },
+        {
+          "box": [
+            491,
+            332,
+            589,
+            471
+          ],
+          "changed_pixels": 7736,
+          "texture_loss": 1.0,
+          "changed_fraction": 0.5679,
+          "status": "gap",
+          "cell": [
+            2,
+            4
+          ]
+        }
+      ],
+      "region_counts": null,
+      "confidence": 1.0,
+      "seconds": 0.2879,
+      "pass": true,
+      "trace": [
+        {
+          "step": 1,
+          "event": "shelf_alignment",
+          "tool": "OpenCV 5 ORB + RANSAC homography",
+          "observation": "inlier ratio 1.00; selected shelf bounds (0, 0, 720, 480)"
+        },
+        {
+          "step": 2,
+          "event": "localized_change_scan",
+          "tool": "OpenCV 5 Lab difference, local texture mask, morphology and connected components",
+          "observation": "2 local change regions inside the selected shelf; 18 reporting cells",
+          "decision": "reinspect_local_regions"
+        },
+        {
+          "step": 3,
+          "event": "active_reinspection",
+          "tool": "OpenCV 5 local edge/texture comparison + finer 2x2 inspection",
+          "observation": "cell (1, 2): 1 regions; texture loss up to 1.00; 100% differing subcells",
+          "decision": "gap"
+        },
+        {
+          "step": 3,
+          "event": "active_reinspection",
+          "tool": "OpenCV 5 local edge/texture comparison + finer 2x2 inspection",
+          "observation": "cell (2, 4): 1 regions; texture loss up to 1.00; 100% differing subcells",
+          "decision": "gap"
+        },
+        {
+          "step": 4,
+          "event": "human_approval_gate",
+          "observation": "2 affected cells; 0 uncertain cells",
+          "decision": "prepare_draft_and_wait_for_human"
+        }
+      ]
+    },
+    {
+      "image": "91_three_gaps.jpg",
+      "reference": "reference_91.jpg",
+      "source": "generated stress fixture",
+      "split": "held-out synthetic",
+      "input_sha256": "d2e463a774efa6f94c7a0a68b9e4408e6b2056406345d13905558d0455bf19cc",
+      "reference_sha256": "1eeacbbcc624669955b061d27e06058240bc94033d81a8152fb33ade0ae3a7fc",
+      "expected_status": "awaiting_approval",
+      "actual_status": "awaiting_approval",
+      "expected_gaps": [
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "predicted_gaps": [
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "expected_review": [],
+      "actual_review": [],
+      "regions": [
+        {
+          "box": [
+            491,
+            12,
+            589,
+            149
+          ],
+          "changed_pixels": 7721,
+          "texture_loss": 1.0,
+          "changed_fraction": 0.5751,
+          "status": "gap",
+          "cell": [
+            0,
+            4
+          ]
+        },
+        {
+          "box": [
+            131,
+            171,
+            230,
+            310
+          ],
+          "changed_pixels": 8757,
+          "texture_loss": 1.0,
+          "changed_fraction": 0.6364,
+          "status": "gap",
+          "cell": [
+            1,
+            1
+          ]
+        },
+        {
+          "box": [
+            371,
+            330,
+            470,
+            470
+          ],
+          "changed_pixels": 9329,
+          "texture_loss": 1.0,
+          "changed_fraction": 0.6731,
+          "status": "gap",
+          "cell": [
+            2,
+            3
+          ]
+        }
+      ],
+      "region_counts": null,
+      "confidence": 1.0,
+      "seconds": 0.1991,
+      "pass": true,
+      "trace": [
+        {
+          "step": 1,
+          "event": "shelf_alignment",
+          "tool": "OpenCV 5 ORB + RANSAC homography",
+          "observation": "inlier ratio 1.00; selected shelf bounds (0, 0, 720, 480)"
+        },
+        {
+          "step": 2,
+          "event": "localized_change_scan",
+          "tool": "OpenCV 5 Lab difference, local texture mask, morphology and connected components",
+          "observation": "3 local change regions inside the selected shelf; 18 reporting cells",
+          "decision": "reinspect_local_regions"
+        },
+        {
+          "step": 3,
+          "event": "active_reinspection",
+          "tool": "OpenCV 5 local edge/texture comparison + finer 2x2 inspection",
+          "observation": "cell (0, 4): 1 regions; texture loss up to 1.00; 100% differing subcells",
+          "decision": "gap"
+        },
+        {
+          "step": 3,
+          "event": "active_reinspection",
+          "tool": "OpenCV 5 local edge/texture comparison + finer 2x2 inspection",
+          "observation": "cell (1, 1): 1 regions; texture loss up to 1.00; 100% differing subcells",
+          "decision": "gap"
+        },
+        {
+          "step": 3,
+          "event": "active_reinspection",
+          "tool": "OpenCV 5 local edge/texture comparison + finer 2x2 inspection",
+          "observation": "cell (2, 3): 1 regions; texture loss up to 1.00; 100% differing subcells",
+          "decision": "gap"
+        },
+        {
+          "step": 4,
+          "event": "human_approval_gate",
+          "observation": "3 affected cells; 0 uncertain cells",
+          "decision": "prepare_draft_and_wait_for_human"
+        }
+      ]
+    },
+    {
+      "image": "91_partial_occlusion.jpg",
+      "reference": "reference_91.jpg",
+      "source": "generated stress fixture",
+      "split": "held-out synthetic",
+      "input_sha256": "bfcddb9eaf6710b8e51bcc289528a980224c04e70c2689e072027e438929745d",
+      "reference_sha256": "1eeacbbcc624669955b061d27e06058240bc94033d81a8152fb33ade0ae3a7fc",
+      "expected_status": "needs_review",
+      "actual_status": "needs_review",
+      "expected_gaps": [],
+      "predicted_gaps": [],
+      "expected_review": [
+        [
+          1,
+          3
+        ]
+      ],
+      "actual_review": [
+        [
+          1,
+          3
+        ]
+      ],
+      "regions": [
+        {
+          "box": [
+            371,
+            172,
+            421,
+            309
+          ],
+          "changed_pixels": 4396,
+          "texture_loss": 0.8198,
+          "changed_fraction": 0.6418,
+          "status": "uncertain",
+          "cell": [
+            1,
+            3
+          ]
+        }
+      ],
+      "region_counts": null,
+      "confidence": 1.0,
+      "seconds": 0.1905,
+      "pass": true,
+      "trace": [
+        {
+          "step": 1,
+          "event": "shelf_alignment",
+          "tool": "OpenCV 5 ORB + RANSAC homography",
+          "observation": "inlier ratio 1.00; selected shelf bounds (0, 0, 720, 480)"
+        },
+        {
+          "step": 2,
+          "event": "localized_change_scan",
+          "tool": "OpenCV 5 Lab difference, local texture mask, morphology and connected components",
+          "observation": "1 local change regions inside the selected shelf; 18 reporting cells",
+          "decision": "reinspect_local_regions"
+        },
+        {
+          "step": 3,
+          "event": "active_reinspection",
+          "tool": "OpenCV 5 local edge/texture comparison + finer 2x2 inspection",
+          "observation": "cell (1, 3): 1 regions; texture loss up to 0.82; 50% differing subcells",
+          "decision": "uncertain"
+        },
+        {
+          "step": 4,
+          "event": "human_review_gate",
+          "observation": "0 affected cells; 1 uncertain cells",
+          "decision": "request_human_review"
+        }
+      ]
+    },
+    {
+      "image": "91_uniform_bad_photo.jpg",
+      "reference": "reference_91.jpg",
+      "source": "generated stress fixture",
+      "split": "held-out synthetic",
+      "input_sha256": "0101f1b713af236318108f6708845960a9c733dbe1bf562b2aced2aea4bc23e8",
+      "reference_sha256": "1eeacbbcc624669955b061d27e06058240bc94033d81a8152fb33ade0ae3a7fc",
+      "expected_status": "recapture_requested",
+      "actual_status": "recapture_requested",
+      "expected_gaps": [],
+      "predicted_gaps": [],
+      "expected_review": [],
+      "actual_review": [],
+      "regions": [],
+      "region_counts": null,
+      "confidence": 0.0,
+      "seconds": 0.0194,
+      "pass": true,
+      "trace": [
+        {
+          "step": 1,
+          "event": "shelf_alignment",
+          "tool": "OpenCV 5 ORB + RANSAC homography",
+          "observation": "inlier ratio 0.00; selected shelf bounds (0, 0, 720, 480)",
+          "decision": "request_recapture"
+        }
+      ]
+    },
+    {
+      "image": "91_unrelated_scene.jpg",
+      "reference": "reference_91.jpg",
+      "source": "generated stress fixture",
+      "split": "held-out synthetic",
+      "input_sha256": "64ae42a5b5700df10935107464f0ea95ebd7459dbefa5086b992eacd82b5a697",
+      "reference_sha256": "1eeacbbcc624669955b061d27e06058240bc94033d81a8152fb33ade0ae3a7fc",
+      "expected_status": "recapture_requested",
+      "actual_status": "recapture_requested",
+      "expected_gaps": [],
+      "predicted_gaps": [],
+      "expected_review": [],
+      "actual_review": [],
+      "regions": [],
+      "region_counts": null,
+      "confidence": 0.016,
+      "seconds": 0.1826,
+      "pass": true,
+      "trace": [
+        {
+          "step": 1,
+          "event": "shelf_alignment",
+          "tool": "OpenCV 5 ORB + RANSAC homography",
+          "observation": "inlier ratio 0.02; selected shelf bounds (0, 0, 720, 480)",
+          "decision": "request_recapture"
+        }
+      ]
+    },
+    {
+      "image": "91_shelf_out_of_frame.jpg",
+      "reference": "reference_91.jpg",
+      "source": "generated stress fixture",
+      "split": "held-out synthetic",
+      "input_sha256": "ca305030895c7376444ac722db8196daf13e29249f7ca81b496d4c7247fd4fb6",
+      "reference_sha256": "1eeacbbcc624669955b061d27e06058240bc94033d81a8152fb33ade0ae3a7fc",
+      "expected_status": "recapture_requested",
+      "actual_status": "recapture_requested",
+      "expected_gaps": [],
+      "predicted_gaps": [],
+      "expected_review": [],
+      "actual_review": [],
+      "regions": [],
+      "region_counts": null,
+      "confidence": 0.998,
+      "seconds": 0.2284,
+      "pass": true,
+      "trace": [
+        {
+          "step": 1,
+          "event": "shelf_alignment",
+          "tool": "OpenCV 5 ORB + RANSAC homography",
+          "observation": "inlier ratio 1.00; selected shelf bounds (0, 0, 720, 480)",
+          "decision": "request_recapture"
+        }
+      ]
+    },
+    {
+      "image": "91_change_outside_roi.jpg",
+      "reference": "reference_91.jpg",
+      "source": "generated stress fixture",
+      "split": "held-out synthetic",
+      "input_sha256": "2ab4444ca7d4f4dfd32cf6031f0c8deb0c2fa2757d0cd24a1fd791aea6f388cc",
+      "reference_sha256": "1eeacbbcc624669955b061d27e06058240bc94033d81a8152fb33ade0ae3a7fc",
+      "expected_status": "shelf_ok",
+      "actual_status": "shelf_ok",
+      "expected_gaps": [],
+      "predicted_gaps": [],
+      "expected_review": [],
+      "actual_review": [],
+      "regions": [],
+      "region_counts": null,
+      "confidence": 1.0,
+      "seconds": 0.1927,
+      "pass": true,
+      "trace": [
+        {
+          "step": 1,
+          "event": "shelf_alignment",
+          "tool": "OpenCV 5 ORB + RANSAC homography",
+          "observation": "inlier ratio 1.00; selected shelf bounds (0, 0, 720, 320)"
+        },
+        {
+          "step": 2,
+          "event": "localized_change_scan",
+          "tool": "OpenCV 5 Lab difference, local texture mask, morphology and connected components",
+          "observation": "0 local change regions inside the selected shelf; 12 reporting cells",
+          "decision": "no_local_change"
+        },
+        {
+          "step": 4,
+          "event": "no_action",
+          "observation": "0 affected cells; 0 uncertain cells",
+          "decision": "no_restock_draft"
+        }
+      ]
+    },
+    {
+      "image": "137_unchanged.jpg",
+      "reference": "reference_137.jpg",
+      "source": "generated stress fixture",
+      "split": "held-out synthetic",
+      "input_sha256": "789d336fbf9c4ecb0cd31d03fcf61a907d9f04b103a2ca4d7e305f6637aa5898",
+      "reference_sha256": "789d336fbf9c4ecb0cd31d03fcf61a907d9f04b103a2ca4d7e305f6637aa5898",
+      "expected_status": "shelf_ok",
+      "actual_status": "shelf_ok",
+      "expected_gaps": [],
+      "predicted_gaps": [],
+      "expected_review": [],
+      "actual_review": [],
+      "regions": [],
+      "region_counts": null,
+      "confidence": 1.0,
+      "seconds": 0.189,
+      "pass": true,
+      "trace": [
+        {
+          "step": 1,
+          "event": "shelf_alignment",
+          "tool": "OpenCV 5 ORB + RANSAC homography",
+          "observation": "inlier ratio 1.00; selected shelf bounds (0, 0, 720, 480)"
+        },
+        {
+          "step": 2,
+          "event": "localized_change_scan",
+          "tool": "OpenCV 5 Lab difference, local texture mask, morphology and connected components",
+          "observation": "0 local change regions inside the selected shelf; 18 reporting cells",
+          "decision": "no_local_change"
+        },
+        {
+          "step": 4,
+          "event": "no_action",
+          "observation": "0 affected cells; 0 uncertain cells",
+          "decision": "no_restock_draft"
+        }
+      ]
+    },
+    {
+      "image": "137_brightness.jpg",
+      "reference": "reference_137.jpg",
+      "source": "generated stress fixture",
+      "split": "held-out synthetic",
+      "input_sha256": "53df87be6480fb3b7f54639ebfb6e6a804e23d7441d20e0bb512a8336ba0e2b8",
+      "reference_sha256": "789d336fbf9c4ecb0cd31d03fcf61a907d9f04b103a2ca4d7e305f6637aa5898",
+      "expected_status": "shelf_ok",
+      "actual_status": "shelf_ok",
+      "expected_gaps": [],
+      "predicted_gaps": [],
+      "expected_review": [],
+      "actual_review": [],
+      "regions": [],
+      "region_counts": null,
+      "confidence": 1.0,
+      "seconds": 0.1819,
+      "pass": true,
+      "trace": [
+        {
+          "step": 1,
+          "event": "shelf_alignment",
+          "tool": "OpenCV 5 ORB + RANSAC homography",
+          "observation": "inlier ratio 1.00; selected shelf bounds (0, 0, 720, 480)"
+        },
+        {
+          "step": 2,
+          "event": "localized_change_scan",
+          "tool": "OpenCV 5 Lab difference, local texture mask, morphology and connected components",
+          "observation": "0 local change regions inside the selected shelf; 18 reporting cells",
+          "decision": "no_local_change"
+        },
+        {
+          "step": 4,
+          "event": "no_action",
+          "observation": "0 affected cells; 0 uncertain cells",
+          "decision": "no_restock_draft"
+        }
+      ]
+    },
+    {
+      "image": "137_viewpoint.jpg",
+      "reference": "reference_137.jpg",
+      "source": "generated stress fixture",
+      "split": "held-out synthetic",
+      "input_sha256": "696202ca59278ece5cc44c3606d29d58886c07ad59f24baac875f2987bb4559e",
+      "reference_sha256": "789d336fbf9c4ecb0cd31d03fcf61a907d9f04b103a2ca4d7e305f6637aa5898",
+      "expected_status": "shelf_ok",
+      "actual_status": "shelf_ok",
+      "expected_gaps": [],
+      "predicted_gaps": [],
+      "expected_review": [],
+      "actual_review": [],
+      "regions": [],
+      "region_counts": null,
+      "confidence": 0.994,
+      "seconds": 0.1871,
+      "pass": true,
+      "trace": [
+        {
+          "step": 1,
+          "event": "shelf_alignment",
+          "tool": "OpenCV 5 ORB + RANSAC homography",
+          "observation": "inlier ratio 0.99; selected shelf bounds (0, 0, 720, 480)"
+        },
+        {
+          "step": 2,
+          "event": "localized_change_scan",
+          "tool": "OpenCV 5 Lab difference, local texture mask, morphology and connected components",
+          "observation": "0 local change regions inside the selected shelf; 18 reporting cells",
+          "decision": "no_local_change"
+        },
+        {
+          "step": 4,
+          "event": "no_action",
+          "observation": "0 affected cells; 0 uncertain cells",
+          "decision": "no_restock_draft"
+        }
+      ]
+    },
+    {
+      "image": "137_single_gap.jpg",
+      "reference": "reference_137.jpg",
+      "source": "generated stress fixture",
+      "split": "held-out synthetic",
+      "input_sha256": "c025cc7a4805a7f4218ac8934ffcd2d18ef3310b16ff8f964dc99027315c6649",
+      "reference_sha256": "789d336fbf9c4ecb0cd31d03fcf61a907d9f04b103a2ca4d7e305f6637aa5898",
+      "expected_status": "awaiting_approval",
+      "actual_status": "awaiting_approval",
+      "expected_gaps": [
+        [
+          0,
+          1
+        ]
+      ],
+      "predicted_gaps": [
+        [
+          0,
+          1
+        ]
+      ],
+      "expected_review": [],
+      "actual_review": [],
+      "regions": [
+        {
+          "box": [
+            130,
+            21,
+            206,
+            107
+          ],
+          "changed_pixels": 1824,
+          "texture_loss": 1.0,
+          "changed_fraction": 0.2791,
+          "status": "gap",
+          "cell": [
+            0,
+            1
+          ]
+        },
+        {
+          "box": [
+            184,
+            115,
+            221,
+            148
+          ],
+          "changed_pixels": 456,
+          "texture_loss": 1.0,
+          "changed_fraction": 0.3735,
+          "status": "gap",
+          "cell": [
+            0,
+            1
+          ]
+        }
+      ],
+      "region_counts": null,
+      "confidence": 1.0,
+      "seconds": 0.1817,
+      "pass": true,
+      "trace": [
+        {
+          "step": 1,
+          "event": "shelf_alignment",
+          "tool": "OpenCV 5 ORB + RANSAC homography",
+          "observation": "inlier ratio 1.00; selected shelf bounds (0, 0, 720, 480)"
+        },
+        {
+          "step": 2,
+          "event": "localized_change_scan",
+          "tool": "OpenCV 5 Lab difference, local texture mask, morphology and connected components",
+          "observation": "2 local change regions inside the selected shelf; 18 reporting cells",
+          "decision": "reinspect_local_regions"
+        },
+        {
+          "step": 3,
+          "event": "active_reinspection",
+          "tool": "OpenCV 5 local edge/texture comparison + finer 2x2 inspection",
+          "observation": "cell (0, 1): 2 regions; texture loss up to 1.00; 100% differing subcells",
+          "decision": "gap"
+        },
+        {
+          "step": 4,
+          "event": "human_approval_gate",
+          "observation": "1 affected cells; 0 uncertain cells",
+          "decision": "prepare_draft_and_wait_for_human"
+        }
+      ]
+    },
+    {
+      "image": "137_two_gaps.jpg",
+      "reference": "reference_137.jpg",
+      "source": "generated stress fixture",
+      "split": "held-out synthetic",
+      "input_sha256": "b887baf3e55924b5cd3ad4d3ab745b431dc685a324831ace113c3c82fe19a9ba",
+      "reference_sha256": "789d336fbf9c4ecb0cd31d03fcf61a907d9f04b103a2ca4d7e305f6637aa5898",
+      "expected_status": "awaiting_approval",
+      "actual_status": "awaiting_approval",
+      "expected_gaps": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          4
+        ]
+      ],
+      "predicted_gaps": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          4
+        ]
+      ],
+      "expected_review": [],
+      "actual_review": [],
+      "regions": [
+        {
+          "box": [
+            250,
+            172,
+            349,
+            309
+          ],
+          "changed_pixels": 6653,
+          "texture_loss": 1.0,
+          "changed_fraction": 0.4905,
+          "status": "gap",
+          "cell": [
+            1,
+            2
+          ]
+        },
+        {
+          "box": [
+            491,
+            331,
+            590,
+            470
+          ],
+          "changed_pixels": 7124,
+          "texture_loss": 1.0,
+          "changed_fraction": 0.5177,
+          "status": "gap",
+          "cell": [
+            2,
+            4
+          ]
+        }
+      ],
+      "region_counts": null,
+      "confidence": 1.0,
+      "seconds": 0.1959,
+      "pass": true,
+      "trace": [
+        {
+          "step": 1,
+          "event": "shelf_alignment",
+          "tool": "OpenCV 5 ORB + RANSAC homography",
+          "observation": "inlier ratio 1.00; selected shelf bounds (0, 0, 720, 480)"
+        },
+        {
+          "step": 2,
+          "event": "localized_change_scan",
+          "tool": "OpenCV 5 Lab difference, local texture mask, morphology and connected components",
+          "observation": "2 local change regions inside the selected shelf; 18 reporting cells",
+          "decision": "reinspect_local_regions"
+        },
+        {
+          "step": 3,
+          "event": "active_reinspection",
+          "tool": "OpenCV 5 local edge/texture comparison + finer 2x2 inspection",
+          "observation": "cell (1, 2): 1 regions; texture loss up to 1.00; 100% differing subcells",
+          "decision": "gap"
+        },
+        {
+          "step": 3,
+          "event": "active_reinspection",
+          "tool": "OpenCV 5 local edge/texture comparison + finer 2x2 inspection",
+          "observation": "cell (2, 4): 1 regions; texture loss up to 1.00; 100% differing subcells",
+          "decision": "gap"
+        },
+        {
+          "step": 4,
+          "event": "human_approval_gate",
+          "observation": "2 affected cells; 0 uncertain cells",
+          "decision": "prepare_draft_and_wait_for_human"
+        }
+      ]
+    },
+    {
+      "image": "137_three_gaps.jpg",
+      "reference": "reference_137.jpg",
+      "source": "generated stress fixture",
+      "split": "held-out synthetic",
+      "input_sha256": "4a22b29ae11fb04ce8c8d0a67529c82f12ae5ee184eea0b6b796764ea28658b0",
+      "reference_sha256": "789d336fbf9c4ecb0cd31d03fcf61a907d9f04b103a2ca4d7e305f6637aa5898",
+      "expected_status": "awaiting_approval",
+      "actual_status": "awaiting_approval",
+      "expected_gaps": [
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "predicted_gaps": [
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "expected_review": [],
+      "actual_review": [],
+      "regions": [
+        {
+          "box": [
+            491,
+            11,
+            590,
+            151
+          ],
+          "changed_pixels": 8367,
+          "texture_loss": 1.0,
+          "changed_fraction": 0.6037,
+          "status": "gap",
+          "cell": [
+            0,
+            4
+          ]
+        },
+        {
+          "box": [
+            131,
+            171,
+            230,
+            310
+          ],
+          "changed_pixels": 8428,
+          "texture_loss": 1.0,
+          "changed_fraction": 0.6125,
+          "status": "gap",
+          "cell": [
+            1,
+            1
+          ]
+        },
+        {
+          "box": [
+            369,
+            332,
+            471,
+            469
+          ],
+          "changed_pixels": 7111,
+          "texture_loss": 1.0,
+          "changed_fraction": 0.5089,
+          "status": "gap",
+          "cell": [
+            2,
+            3
+          ]
+        }
+      ],
+      "region_counts": null,
+      "confidence": 1.0,
+      "seconds": 0.2196,
+      "pass": true,
+      "trace": [
+        {
+          "step": 1,
+          "event": "shelf_alignment",
+          "tool": "OpenCV 5 ORB + RANSAC homography",
+          "observation": "inlier ratio 1.00; selected shelf bounds (0, 0, 720, 480)"
+        },
+        {
+          "step": 2,
+          "event": "localized_change_scan",
+          "tool": "OpenCV 5 Lab difference, local texture mask, morphology and connected components",
+          "observation": "3 local change regions inside the selected shelf; 18 reporting cells",
+          "decision": "reinspect_local_regions"
+        },
+        {
+          "step": 3,
+          "event": "active_reinspection",
+          "tool": "OpenCV 5 local edge/texture comparison + finer 2x2 inspection",
+          "observation": "cell (0, 4): 1 regions; texture loss up to 1.00; 100% differing subcells",
+          "decision": "gap"
+        },
+        {
+          "step": 3,
+          "event": "active_reinspection",
+          "tool": "OpenCV 5 local edge/texture comparison + finer 2x2 inspection",
+          "observation": "cell (1, 1): 1 regions; texture loss up to 1.00; 100% differing subcells",
+          "decision": "gap"
+        },
+        {
+          "step": 3,
+          "event": "active_reinspection",
+          "tool": "OpenCV 5 local edge/texture comparison + finer 2x2 inspection",
+          "observation": "cell (2, 3): 1 regions; texture loss up to 1.00; 100% differing subcells",
+          "decision": "gap"
+        },
+        {
+          "step": 4,
+          "event": "human_approval_gate",
+          "observation": "3 affected cells; 0 uncertain cells",
+          "decision": "prepare_draft_and_wait_for_human"
+        }
+      ]
+    },
+    {
+      "image": "137_partial_occlusion.jpg",
+      "reference": "reference_137.jpg",
+      "source": "generated stress fixture",
+      "split": "held-out synthetic",
+      "input_sha256": "bd375a65481ed3967f94502025048762a630acc20a3b441ac369d5cab5d90dd0",
+      "reference_sha256": "789d336fbf9c4ecb0cd31d03fcf61a907d9f04b103a2ca4d7e305f6637aa5898",
+      "expected_status": "needs_review",
+      "actual_status": "awaiting_approval",
+      "expected_gaps": [],
+      "predicted_gaps": [
+        [
+          1,
+          3
+        ]
+      ],
+      "expected_review": [
+        [
+          1,
+          3
+        ]
+      ],
+      "actual_review": [],
+      "regions": [
+        {
+          "box": [
+            374,
+            193,
+            407,
+            224
+          ],
+          "changed_pixels": 355,
+          "texture_loss": 1.0,
+          "changed_fraction": 0.347,
+          "status": "gap",
+          "cell": [
+            1,
+            3
+          ]
+        },
+        {
+          "box": [
+            374,
+            238,
+            409,
+            276
+          ],
+          "changed_pixels": 616,
+          "texture_loss": 1.0,
+          "changed_fraction": 0.4632,
+          "status": "gap",
+          "cell": [
+            1,
+            3
+          ]
+        }
+      ],
+      "region_counts": null,
+      "confidence": 1.0,
+      "seconds": 0.1846,
+      "pass": false,
+      "trace": [
+        {
+          "step": 1,
+          "event": "shelf_alignment",
+          "tool": "OpenCV 5 ORB + RANSAC homography",
+          "observation": "inlier ratio 1.00; selected shelf bounds (0, 0, 720, 480)"
+        },
+        {
+          "step": 2,
+          "event": "localized_change_scan",
+          "tool": "OpenCV 5 Lab difference, local texture mask, morphology and connected components",
+          "observation": "2 local change regions inside the selected shelf; 18 reporting cells",
+          "decision": "reinspect_local_regions"
+        },
+        {
+          "step": 3,
+          "event": "active_reinspection",
+          "tool": "OpenCV 5 local edge/texture comparison + finer 2x2 inspection",
+          "observation": "cell (1, 3): 2 regions; texture loss up to 1.00; 50% differing subcells",
+          "decision": "gap"
+        },
+        {
+          "step": 4,
+          "event": "human_approval_gate",
+          "observation": "1 affected cells; 0 uncertain cells",
+          "decision": "prepare_draft_and_wait_for_human"
+        }
+      ]
+    },
+    {
+      "image": "137_uniform_bad_photo.jpg",
+      "reference": "reference_137.jpg",
+      "source": "generated stress fixture",
+      "split": "held-out synthetic",
+      "input_sha256": "0101f1b713af236318108f6708845960a9c733dbe1bf562b2aced2aea4bc23e8",
+      "reference_sha256": "789d336fbf9c4ecb0cd31d03fcf61a907d9f04b103a2ca4d7e305f6637aa5898",
+      "expected_status": "recapture_requested",
+      "actual_status": "recapture_requested",
+      "expected_gaps": [],
+      "predicted_gaps": [],
+      "expected_review": [],
+      "actual_review": [],
+      "regions": [],
+      "region_counts": null,
+      "confidence": 0.0,
+      "seconds": 0.0175,
+      "pass": true,
+      "trace": [
+        {
+          "step": 1,
+          "event": "shelf_alignment",
+          "tool": "OpenCV 5 ORB + RANSAC homography",
+          "observation": "inlier ratio 0.00; selected shelf bounds (0, 0, 720, 480)",
+          "decision": "request_recapture"
+        }
+      ]
+    },
+    {
+      "image": "137_unrelated_scene.jpg",
+      "reference": "reference_137.jpg",
+      "source": "generated stress fixture",
+      "split": "held-out synthetic",
+      "input_sha256": "241e89acc13fd74b6224a31a78bd52037963498c799367e5ebe211472b367c1d",
+      "reference_sha256": "789d336fbf9c4ecb0cd31d03fcf61a907d9f04b103a2ca4d7e305f6637aa5898",
+      "expected_status": "recapture_requested",
+      "actual_status": "recapture_requested",
+      "expected_gaps": [],
+      "predicted_gaps": [],
+      "expected_review": [],
+      "actual_review": [],
+      "regions": [],
+      "region_counts": null,
+      "confidence": 0.0,
+      "seconds": 0.1839,
+      "pass": true,
+      "trace": [
+        {
+          "step": 1,
+          "event": "shelf_alignment",
+          "tool": "OpenCV 5 ORB + RANSAC homography",
+          "observation": "inlier ratio 0.00; selected shelf bounds (0, 0, 720, 480)",
+          "decision": "request_recapture"
+        }
+      ]
+    },
+    {
+      "image": "137_shelf_out_of_frame.jpg",
+      "reference": "reference_137.jpg",
+      "source": "generated stress fixture",
+      "split": "held-out synthetic",
+      "input_sha256": "659791a498f0a249fcc8a6e4196678a7eeb688077c11cb467bf95938472be411",
+      "reference_sha256": "789d336fbf9c4ecb0cd31d03fcf61a907d9f04b103a2ca4d7e305f6637aa5898",
+      "expected_status": "recapture_requested",
+      "actual_status": "recapture_requested",
+      "expected_gaps": [],
+      "predicted_gaps": [],
+      "expected_review": [],
+      "actual_review": [],
+      "regions": [],
+      "region_counts": null,
+      "confidence": 0.998,
+      "seconds": 0.1538,
+      "pass": true,
+      "trace": [
+        {
+          "step": 1,
+          "event": "shelf_alignment",
+          "tool": "OpenCV 5 ORB + RANSAC homography",
+          "observation": "inlier ratio 1.00; selected shelf bounds (0, 0, 720, 480)",
+          "decision": "request_recapture"
+        }
+      ]
+    },
+    {
+      "image": "137_change_outside_roi.jpg",
+      "reference": "reference_137.jpg",
+      "source": "generated stress fixture",
+      "split": "held-out synthetic",
+      "input_sha256": "0385a20ad6c531a27b4635f3bedceda7980257b46bc697cf087be216c1b39ecb",
+      "reference_sha256": "789d336fbf9c4ecb0cd31d03fcf61a907d9f04b103a2ca4d7e305f6637aa5898",
+      "expected_status": "shelf_ok",
+      "actual_status": "shelf_ok",
+      "expected_gaps": [],
+      "predicted_gaps": [],
+      "expected_review": [],
+      "actual_review": [],
+      "regions": [],
+      "region_counts": null,
+      "confidence": 1.0,
+      "seconds": 0.1961,
+      "pass": true,
+      "trace": [
+        {
+          "step": 1,
+          "event": "shelf_alignment",
+          "tool": "OpenCV 5 ORB + RANSAC homography",
+          "observation": "inlier ratio 1.00; selected shelf bounds (0, 0, 720, 320)"
+        },
+        {
+          "step": 2,
+          "event": "localized_change_scan",
+          "tool": "OpenCV 5 Lab difference, local texture mask, morphology and connected components",
+          "observation": "0 local change regions inside the selected shelf; 12 reporting cells",
+          "decision": "no_local_change"
+        },
+        {
+          "step": 4,
+          "event": "no_action",
+          "observation": "0 affected cells; 0 uncertain cells",
+          "decision": "no_restock_draft"
+        }
+      ]
+    }
+  ]
+}

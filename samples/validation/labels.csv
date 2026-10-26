@@ -1,0 +1,34 @@
+reference,image,gap_cells,review_cells,expected_status,rows,cols,roi,source,split,notes
+reference_73.jpg,73_unchanged.jpg,,,shelf_ok,3,6,,generated stress fixture,held-out synthetic,unchanged
+reference_73.jpg,73_brightness.jpg,,,shelf_ok,3,6,,generated stress fixture,held-out synthetic,brightness
+reference_73.jpg,73_viewpoint.jpg,,,shelf_ok,3,6,,generated stress fixture,held-out synthetic,viewpoint
+reference_73.jpg,73_single_gap.jpg,0-1,,awaiting_approval,3,6,,generated stress fixture,held-out synthetic,single_gap
+reference_73.jpg,73_two_gaps.jpg,1-2;2-4,,awaiting_approval,3,6,,generated stress fixture,held-out synthetic,two_gaps
+reference_73.jpg,73_three_gaps.jpg,0-4;1-1;2-3,,awaiting_approval,3,6,,generated stress fixture,held-out synthetic,three_gaps
+reference_73.jpg,73_partial_occlusion.jpg,,1-3,needs_review,3,6,,generated stress fixture,held-out synthetic,partial_occlusion
+reference_73.jpg,73_uniform_bad_photo.jpg,,,recapture_requested,3,6,,generated stress fixture,held-out synthetic,uniform_bad_photo
+reference_73.jpg,73_unrelated_scene.jpg,,,recapture_requested,3,6,,generated stress fixture,held-out synthetic,unrelated_scene
+reference_73.jpg,73_shelf_out_of_frame.jpg,,,recapture_requested,3,6,,generated stress fixture,held-out synthetic,shelf_out_of_frame
+reference_73.jpg,73_change_outside_roi.jpg,,,shelf_ok,2,6,"[0, 0, 1, 0.6666666666666666]",generated stress fixture,held-out synthetic,change_outside_roi
+reference_91.jpg,91_unchanged.jpg,,,shelf_ok,3,6,,generated stress fixture,held-out synthetic,unchanged
+reference_91.jpg,91_brightness.jpg,,,shelf_ok,3,6,,generated stress fixture,held-out synthetic,brightness
+reference_91.jpg,91_viewpoint.jpg,,,shelf_ok,3,6,,generated stress fixture,held-out synthetic,viewpoint
+reference_91.jpg,91_single_gap.jpg,0-1,,awaiting_approval,3,6,,generated stress fixture,held-out synthetic,single_gap
+reference_91.jpg,91_two_gaps.jpg,1-2;2-4,,awaiting_approval,3,6,,generated stress fixture,held-out synthetic,two_gaps
+reference_91.jpg,91_three_gaps.jpg,0-4;1-1;2-3,,awaiting_approval,3,6,,generated stress fixture,held-out synthetic,three_gaps
+reference_91.jpg,91_partial_occlusion.jpg,,1-3,needs_review,3,6,,generated stress fixture,held-out synthetic,partial_occlusion
+reference_91.jpg,91_uniform_bad_photo.jpg,,,recapture_requested,3,6,,generated stress fixture,held-out synthetic,uniform_bad_photo
+reference_91.jpg,91_unrelated_scene.jpg,,,recapture_requested,3,6,,generated stress fixture,held-out synthetic,unrelated_scene
+reference_91.jpg,91_shelf_out_of_frame.jpg,,,recapture_requested,3,6,,generated stress fixture,held-out synthetic,shelf_out_of_frame
+reference_91.jpg,91_change_outside_roi.jpg,,,shelf_ok,2,6,"[0, 0, 1, 0.6666666666666666]",generated stress fixture,held-out synthetic,change_outside_roi
+reference_137.jpg,137_unchanged.jpg,,,shelf_ok,3,6,,generated stress fixture,held-out synthetic,unchanged
+reference_137.jpg,137_brightness.jpg,,,shelf_ok,3,6,,generated stress fixture,held-out synthetic,brightness
+reference_137.jpg,137_viewpoint.jpg,,,shelf_ok,3,6,,generated stress fixture,held-out synthetic,viewpoint
+reference_137.jpg,137_single_gap.jpg,0-1,,awaiting_approval,3,6,,generated stress fixture,held-out synthetic,single_gap
+reference_137.jpg,137_two_gaps.jpg,1-2;2-4,,awaiting_approval,3,6,,generated stress fixture,held-out synthetic,two_gaps
+reference_137.jpg,137_three_gaps.jpg,0-4;1-1;2-3,,awaiting_approval,3,6,,generated stress fixture,held-out synthetic,three_gaps
+reference_137.jpg,137_partial_occlusion.jpg,,1-3,needs_review,3,6,,generated stress fixture,held-out synthetic,partial_occlusion
+reference_137.jpg,137_uniform_bad_photo.jpg,,,recapture_requested,3,6,,generated stress fixture,held-out synthetic,uniform_bad_photo
+reference_137.jpg,137_unrelated_scene.jpg,,,recapture_requested,3,6,,generated stress fixture,held-out synthetic,unrelated_scene
+reference_137.jpg,137_shelf_out_of_frame.jpg,,,recapture_requested,3,6,,generated stress fixture,held-out synthetic,shelf_out_of_frame
+reference_137.jpg,137_change_outside_roi.jpg,,,shelf_ok,2,6,"[0, 0, 1, 0.6666666666666666]",generated stress fixture,held-out synthetic,change_outside_roi

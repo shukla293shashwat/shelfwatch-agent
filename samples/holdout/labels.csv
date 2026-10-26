@@ -1,0 +1,7 @@
+reference,image,gap_cells,review_cells,expected_status,region_boxes,source,split,notes
+real1_t0.jpg,real1_t1.jpg,,,awaiting_approval,"[[350, 203, 426, 416]]",ShelfChange3D annotated website preview; not raw benchmark imagery,additional annotated diagnostic,manual grouped-region labels; visible source annotations in both images
+real1_t0.jpg,real1_t0.jpg,,,shelf_ok,[],ShelfChange3D annotated website preview; not raw benchmark imagery,additional annotated diagnostic,manual grouped-region labels; visible source annotations in both images
+real2_t0.jpg,real2_t1.jpg,,,awaiting_approval,"[[85, 302, 176, 457], [177, 250, 263, 439]]",ShelfChange3D annotated website preview; not raw benchmark imagery,additional annotated diagnostic,manual grouped-region labels; visible source annotations in both images
+real2_t0.jpg,real2_t0.jpg,,,shelf_ok,[],ShelfChange3D annotated website preview; not raw benchmark imagery,additional annotated diagnostic,manual grouped-region labels; visible source annotations in both images
+real3_t0.jpg,real3_t1.jpg,,,awaiting_approval,"[[246, 145, 469, 392]]",ShelfChange3D annotated website preview; not raw benchmark imagery,additional annotated diagnostic,manual grouped-region labels; visible source annotations in both images
+real3_t0.jpg,real3_t0.jpg,,,shelf_ok,[],ShelfChange3D annotated website preview; not raw benchmark imagery,additional annotated diagnostic,manual grouped-region labels; visible source annotations in both images

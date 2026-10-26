@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="600" viewBox="0 0 1280 600" role="img" aria-labelledby="title desc">
+<title id="title">ShelfWatch Agent architecture</title>
+<desc id="desc">A shelf photo is aligned and scanned with OpenCV 5. Uncertain cells are re-inspected. Candidate gaps create a local draft that waits for human approval.</desc>
+<defs><linearGradient id="bg" x2="1" y2="1"><stop stop-color="#101512"/><stop offset="1" stop-color="#18241b"/></linearGradient><linearGradient id="accent"><stop stop-color="#7de0ad"/><stop offset="1" stop-color="#54b98b"/></linearGradient><filter id="shadow" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#000" flood-opacity=".22"/></filter><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0 10 5 0 10z" fill="#7de0ad"/></marker><style>text{font-family:Inter,Segoe UI,Arial,sans-serif;fill:#ecf2ed}.muted{fill:#a7b3aa}.label{font-size:14px;letter-spacing:1.4px;font-weight:700;fill:#7de0ad}.title{font-size:32px;font-weight:700;letter-spacing:-.8px}.head{font-size:19px;font-weight:700}.copy{font-size:14px}.box{fill:#19221c;stroke:#34443a;stroke-width:1.5}.line{fill:none;stroke:#7de0ad;stroke-width:2.5;marker-end:url(#arrow)}</style></defs>
+<rect width="1280" height="600" rx="28" fill="url(#bg)"/>
+<text x="64" y="70" class="label">SYSTEM OVERVIEW</text><text x="64" y="116" class="title">ShelfWatch Agent · perception to supervised action</text>
+<!-- Input and perception -->
+<g filter="url(#shadow)"><rect class="box" x="64" y="190" width="210" height="124" rx="18"/><rect class="box" x="326" y="190" width="238" height="124" rx="18"/><rect class="box" x="616" y="190" width="238" height="124" rx="18"/><rect class="box" x="906" y="190" width="194" height="124" rx="18"/><rect class="box" x="1140" y="190" width="90" height="124" rx="18"/></g>
+<text x="88" y="226" class="label">INPUT</text><text x="88" y="258" class="head">Shelf photos</text><text x="88" y="284" class="copy muted">Reference + current image</text>
+<text x="350" y="226" class="label">ALIGN</text><text x="350" y="258" class="head">OpenCV 5</text><text x="350" y="284" class="copy muted">ORB features + RANSAC</text>
+<text x="640" y="226" class="label">INSPECT</text><text x="640" y="258" class="head">Cell scoring</text><text x="640" y="284" class="copy muted">Ambiguity → 2×2 recheck</text>
+<text x="930" y="226" class="label">DECIDE</text><text x="930" y="258" class="head">Restock draft</text><text x="930" y="284" class="copy muted">Candidate gaps + trace</text>
+<text x="1156" y="226" class="label">HUMAN</text><text x="1156" y="258" class="head">Review</text><text x="1156" y="284" class="copy muted">Gate</text>
+<path class="line" d="M274 252h42"/><path class="line" d="M564 252h42"/><path class="line" d="M854 252h42"/><path class="line" d="M1100 252h30"/>
+<!-- Branches -->
+<rect x="360" y="390" width="200" height="94" rx="16" fill="#281e1c" stroke="#78453c" stroke-width="1.5"/><text x="384" y="426" class="head">Retake requested</text><text x="384" y="454" class="copy muted">If alignment is unreliable</text><path d="M445 314v40q0 16-16 16h-20v38" fill="none" stroke="#e99686" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="704" y="390" width="248" height="94" rx="16" fill="#19271f" stroke="#477357" stroke-width="1.5"/><text x="728" y="426" class="head">Approval recorded locally</text><text x="728" y="454" class="copy muted">No supplier contact or order sent</text><path d="M1182 314v40q0 16-16 16H828v38" fill="none" stroke="#7de0ad" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="64" y="548" class="copy muted">Current prototype: local FastAPI demo · generated fixtures + external diagnostics · AWS hosting not yet deployed</text>
+</svg>
+

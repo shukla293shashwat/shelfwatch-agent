@@ -1,0 +1,144 @@
+{
+  "generated_at_utc": "2026-10-26T12:10:31.780946+00:00",
+  "opencv_version": "5.0.0",
+  "dataset": "provided synthetic examples; not a real-world accuracy estimate",
+  "image_count": 3,
+  "cell_metrics": {
+    "tp": 3,
+    "fp": 0,
+    "fn": 0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0
+  },
+  "all_cases_pass": true,
+  "cases": [
+    {
+      "image": "synthetic_partial_stock.jpg",
+      "expected_status": "awaiting_approval",
+      "actual_status": "awaiting_approval",
+      "expected_gaps": [
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          0
+        ]
+      ],
+      "predicted_gaps": [
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          0
+        ]
+      ],
+      "expected_review_cells": [
+        [
+          1,
+          2
+        ]
+      ],
+      "actual_review_cells": [
+        [
+          1,
+          2
+        ]
+      ],
+      "alignment_confidence": 0.97,
+      "pass": true,
+      "trace": [
+        {
+          "step": 1,
+          "event": "shelf_alignment",
+          "tool": "OpenCV 5 ORB + RANSAC homography",
+          "observation": "alignment confidence 0.97"
+        },
+        {
+          "step": 2,
+          "event": "cell_scan",
+          "tool": "OpenCV 5 normalized template comparison",
+          "observation": "18 cells scored; 1 need closer inspection",
+          "decision": "reinspect_uncertain_cells"
+        },
+        {
+          "step": 3,
+          "event": "active_reinspection",
+          "tool": "OpenCV 5 finer 2x2 cell scan",
+          "observation": "cell (1, 2) score 0.42; 50% of subcells differ",
+          "decision": "uncertain"
+        },
+        {
+          "step": 4,
+          "event": "human_approval_gate",
+          "observation": "3 likely gaps; 1 uncertain cells",
+          "decision": "prepare_local_draft_and_wait_for_human"
+        }
+      ]
+    },
+    {
+      "image": "synthetic_full_stock.jpg",
+      "expected_status": "shelf_ok",
+      "actual_status": "shelf_ok",
+      "expected_gaps": [],
+      "predicted_gaps": [],
+      "expected_review_cells": [],
+      "actual_review_cells": [],
+      "alignment_confidence": 1.0,
+      "pass": true,
+      "trace": [
+        {
+          "step": 1,
+          "event": "shelf_alignment",
+          "tool": "OpenCV 5 ORB + RANSAC homography",
+          "observation": "alignment confidence 1.00"
+        },
+        {
+          "step": 2,
+          "event": "cell_scan",
+          "tool": "OpenCV 5 normalized template comparison",
+          "observation": "18 cells scored; 0 need closer inspection",
+          "decision": "use_cell_scores"
+        },
+        {
+          "step": 4,
+          "event": "no_action",
+          "observation": "all cells scored as present",
+          "decision": "no_restock_draft"
+        }
+      ]
+    },
+    {
+      "image": "synthetic_unaligned.jpg",
+      "expected_status": "recapture_requested",
+      "actual_status": "recapture_requested",
+      "expected_gaps": [],
+      "predicted_gaps": [],
+      "expected_review_cells": [],
+      "actual_review_cells": [],
+      "alignment_confidence": 0.0,
+      "pass": true,
+      "trace": [
+        {
+          "step": 1,
+          "event": "shelf_alignment",
+          "tool": "OpenCV 5 ORB + RANSAC homography",
+          "observation": "alignment confidence 0.00",
+          "decision": "request_recapture"
+        }
+      ]
+    }
+  ]
+}

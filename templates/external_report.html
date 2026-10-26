@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ShelfWatch — external photo checks</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; background: #101512; color: #ecf2ed; font: 16px/1.6 system-ui, sans-serif; }
+    main { max-width: 1400px; margin: auto; padding: 36px 24px; }
+    h1 { line-height: 1.15; letter-spacing: -.03em; }
+    p, figcaption { color: #bac5bd; }
+    a { color: #7de0ad; }
+    article { margin-top: 30px; padding: 24px; background: #19221c; border: 1px solid #34443a; border-radius: 16px; }
+    h2 { font-size: 21px; text-transform: capitalize; }
+    h2 span { font-size: 13px; margin-left: 12px; }
+    .images { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+    figure { margin: 0; }
+    img { width: 100%; border-radius: 8px; }
+    figcaption { font-size: 13px; }
+    a:focus-visible { outline: 3px solid #7de0ad; outline-offset: 4px; }
+    @media (max-width: 800px) {
+      .images { grid-template-columns: 1fr; }
+      main { padding: 20px 12px; }
+      article { padding: 16px; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>ShelfWatch · external photo checks</h1>
+    <p>{{summary}}</p>
+    <p>
+      Original research demonstration pairs from
+      <a href="https://zerone0011.github.io/ShelfChange3D/">ShelfChange3D</a>,
+      uploaded without image edits. These small diagnostic checks are not a general retail accuracy benchmark.
+      A successful HTTP request or high alignment score does not establish correct gap detection.
+    </p>
+    {{cases}}
+  </main>
+</body>
+</html>
