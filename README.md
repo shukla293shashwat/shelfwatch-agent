@@ -8,6 +8,8 @@ Version 2 adds a selectable shelf area, small change-region detection, saved app
 
 ## Start here
 
+**Hosted demo:** [shelfwatch-agent.onrender.com](https://shelfwatch-agent.onrender.com/). Ask the project owner for the demo access code, enter it in **Demo access code**, then click **Try synthetic demo**. The first visit after inactivity may take about a minute. This service runs on Render; AWS delivery is still pending.
+
 You need **Python 3.12**. Extract the whole folder, double-click **`start.bat`** on Windows, and open **http://127.0.0.1:8000/** after the server starts. The first setup installs the pinned packages and needs internet access. Keep the terminal open while using the app; press **Ctrl+C** to stop it.
 
 To run manually in PowerShell:
@@ -128,7 +130,7 @@ docker build -t shelfwatch .
 docker run --rm -p 8000:8000 -v shelfwatch-state:/data shelfwatch
 ```
 
-`HOST` and `PORT` configure the server. `.env.example` lists the container settings; the app reads actual environment variables rather than automatically loading that file. Public services need HTTPS and the access code. Docker/AWS build and endpoint verification are recorded separately once performed.
+`HOST` and `PORT` configure the server. `.env.example` lists the container settings; the app reads actual environment variables rather than automatically loading that file. Public services need HTTPS and the access code. The Docker image built and ran successfully on Render on October 26, 2026; AWS verification remains outstanding.
 
 ## Code map
 
@@ -160,6 +162,8 @@ Third-party image sources and reuse notes are in [THIRD_PARTY_NOTICES.md](THIRD_
 
 `render.yaml` explicitly selects Render's **Free** Docker web service in Singapore, with one analysis at a time, one OpenCV worker thread and a 1000-pixel image dimension cap. It does not add a paid database or disk. The host generates a demo access code as a secret; public mode still requires that code for analysis and approvals.
 
-Render account creation and email verification must finish before the service can be provisioned. Free services can sleep after inactivity, and their local SQLite records are lost when the hosting filesystem resets. This is suitable for a demonstration, not a persistent inventory system. Do not add a payment method or upgrade if keeping a zero-charge demo is required. See https://render.com/docs/free for current limits.
+The Free service was deployed and checked on October 26, 2026. Its health endpoint reported OpenCV 5.0.0; authenticated synthetic analysis found three gap cells and one review cell. A credited real-photo development example also returned its expected affected cell. Approval was recorded without sending an order, repeated approval returned 404, and analysis without an access code returned 401. See [the deployment check](docs/evidence/render-verification.json).
+
+Free services can sleep after inactivity, and their local SQLite records are lost when the hosting filesystem resets. This is suitable for a demonstration, not a persistent inventory system. Do not add a payment method or upgrade if keeping a zero-charge demo is required. See https://render.com/docs/free for current limits.
 
 Render hosting does not establish AWS use for the hackathon. A temporary preview from a local computer is also only a preview: its URL stops working when that computer or tunnel process stops. Neither should be described as the verified AWS deployment in the technical report.

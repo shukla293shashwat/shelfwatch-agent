@@ -1,0 +1,26 @@
+{
+  "checked_at": "2026-10-26T22:48:24.5200523+05:30",
+  "host": "https://shelfwatch-agent.onrender.com",
+  "health": {
+    "ok": true,
+    "version": "2.0.0",
+    "opencv_version": "5.0.0",
+    "opencv5": true,
+    "auth_required": true,
+    "approval_storage": "sqlite",
+    "ephemeral_state": true
+  },
+  "unauthenticated_analysis_status": 401,
+  "synthetic_status": "awaiting_approval",
+  "synthetic_gaps": 3,
+  "synthetic_review_cells": 1,
+  "approval": {
+    "approved": true,
+    "sent": false,
+    "message": "Draft approved locally. No supplier was contacted and no order was sent.",
+    "approved_at": "2026-10-26T22:48:20.483994+05:30"
+  },
+  "repeated_approval_status": 404,
+  "real_development_status": "awaiting_approval",
+  "real_development_gap_cells": 1
+}

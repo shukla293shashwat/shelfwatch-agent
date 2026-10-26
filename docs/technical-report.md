@@ -2,7 +2,7 @@
 
 **Author:** Shashwat Shukla  
 **Runtime checked:** Python 3.12, OpenCV 5.0.0 (package 5.0.0.93)  
-**Status:** local prototype with development regression checks and separate diagnostic datasets. AWS delivery is prepared but not yet verified live.
+**Status:** prototype running on a verified Render Free Docker service, with development regression checks and separate diagnostic datasets. AWS delivery is prepared but not yet verified live.
 
 ## Problem
 
@@ -58,6 +58,10 @@ The AWS deployment code targets EC2 for the actual OpenCV/FastAPI runtime, with 
 The AWS account recently completed user-side verification. The last service probe still returned Free-plan state `NOT_STARTED` and EC2 `OptInRequired`; no project resources or live endpoint have been created. This is an external activation dependency. Do not describe the templates or a successful console login as a completed AWS deployment. After activation, record the actual region, stack status, image digests, HTTPS health response, authorized analysis and logs before submission.
 
 ## Limits and remaining validation
+
+### Verified demonstration hosting
+
+On October 26, 2026, the pinned Docker image built and started on Render Free in Singapore at https://shelfwatch-agent.onrender.com/. The public health response reported OpenCV 5.0.0. Authenticated synthetic analysis returned three gap cells and one uncertain cell, and the first real-photo development example returned the expected affected cell. An approval test recorded approval with `sent: false`; repeated approval returned 404 and an unauthenticated analysis returned 401. These are deployment smoke checks, not additional accuracy measurements. The access code is excluded from source and evidence. Free-hosting SQLite state is disposable. This deployment does not satisfy the hackathon's AWS requirement.
 
 - No SKU identity, product quantity, stock database or supplier API.
 - Changed appearance does not prove removal; occlusion, rearrangement and packaging changes can confuse the rules.
