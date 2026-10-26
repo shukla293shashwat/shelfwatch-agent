@@ -218,7 +218,7 @@ fetch("/health")
   .then((data) => {
     const ready = data.ok && data.opencv5;
     document.getElementById("access-field").hidden = !data.auth_required;
-    if (data.ephemeral_state) document.getElementById("hosting-note").textContent = "Free demo hosting resets saved drafts when the service restarts.";
+    if (data.ephemeral_state) document.getElementById("hosting-note").textContent = "This demo has no backup for saved drafts.";
     document.getElementById("api-status").textContent = ready
       ? `OpenCV ${data.opencv_version} ready`
       : `OpenCV 5 required · found ${data.opencv_version}`;

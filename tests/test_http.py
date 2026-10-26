@@ -3,15 +3,15 @@ import json
 import os
 import secrets
 import socket
+import subprocess
+import sys
 import tempfile
-import threading
 import time
 import unittest
 import urllib.error
 import urllib.request
 from pathlib import Path
 
-import uvicorn
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -27,23 +27,29 @@ class ApiChecks(unittest.TestCase):
             connection.bind(('127.0.0.1',0))
             port = connection.getsockname()[1]
         cls.base = f'http://127.0.0.1:{port}'
-        from app import app
-        cls.server = uvicorn.Server(uvicorn.Config(app,host='127.0.0.1',port=port,log_level='warning',timeout_graceful_shutdown=1,timeout_keep_alive=1))
-        cls.thread = threading.Thread(target=cls.server.run,daemon=True)
-        cls.thread.start()
+        environment = os.environ.copy()
+        environment.update(HOST='127.0.0.1', PORT=str(port), PYTHONDONTWRITEBYTECODE='1')
+        cls.process = subprocess.Popen([sys.executable, '-B', 'run.py'], cwd=ROOT,
+                                       env=environment, stdout=subprocess.DEVNULL,
+                                       stderr=subprocess.DEVNULL)
         for _ in range(100):
-            if cls.server.started:
-                return
-            time.sleep(.1)
+            try:
+                with urllib.request.urlopen(cls.base + '/health', timeout=1) as response:
+                    if response.status == 200:
+                        return
+            except (OSError, urllib.error.URLError):
+                time.sleep(.1)
         raise RuntimeError('The test server did not start.')
 
     @classmethod
     def tearDownClass(cls):
-        cls.server.should_exit = True
-        cls.thread.join(timeout=3)
-        if cls.thread.is_alive():
-            cls.server.force_exit = True
-            cls.thread.join(timeout=3)
+        if cls.process.poll() is None:
+            if os.name == 'nt':
+                subprocess.run(['taskkill', '/PID', str(cls.process.pid), '/T', '/F'],
+                               stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+            else:
+                cls.process.terminate()
+            cls.process.wait(timeout=10)
         for name,value in cls.previous.items():
             if value is None:
                 os.environ.pop(name,None)

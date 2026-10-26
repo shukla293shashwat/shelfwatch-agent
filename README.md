@@ -155,3 +155,11 @@ docs/evidence/                 Baseline and updated evidence
 The two development pairs and a generated stress set are a starting point. Store testing needs raw reference/current pairs from varied shelves, manual labels, a separate development split, and a fixed untouched test set. Some new products, rearrangements, glare and occlusion will still confuse appearance-based comparison. Fine change regions may merge nearby products, so the app reports locations rather than stock quantities.
 
 Third-party image sources and reuse notes are in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md). The [technical report](docs/technical-report.md) records methods, evidence boundaries and remaining delivery steps.
+
+## Render free demo configuration
+
+`render.yaml` explicitly selects Render's **Free** Docker web service in Singapore, with one analysis at a time, one OpenCV worker thread and a 1000-pixel image dimension cap. It does not add a paid database or disk. The host generates a demo access code as a secret; public mode still requires that code for analysis and approvals.
+
+Render account creation and email verification must finish before the service can be provisioned. Free services can sleep after inactivity, and their local SQLite records are lost when the hosting filesystem resets. This is suitable for a demonstration, not a persistent inventory system. Do not add a payment method or upgrade if keeping a zero-charge demo is required. See https://render.com/docs/free for current limits.
+
+Render hosting does not establish AWS use for the hackathon. A temporary preview from a local computer is also only a preview: its URL stops working when that computer or tunnel process stops. Neither should be described as the verified AWS deployment in the technical report.

@@ -23,7 +23,7 @@ def main():
             if not path.is_file() or path.resolve()==target:
                 continue
             relative=path.relative_to(ROOT)
-            if set(relative.parts)&SKIP or path.suffix in {'.pyc','.log','.zip'}:
+            if set(relative.parts)&SKIP or path.suffix in {'.pyc','.log','.zip','.stackdump'}:
                 continue
             if path.name.startswith('.env') and path.name!='.env.example':
                 continue
